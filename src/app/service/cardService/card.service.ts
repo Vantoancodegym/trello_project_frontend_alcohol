@@ -1,9 +1,20 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Input} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {ICard} from '../../interface/i-card';
+import {environment} from '../../../environments/environment';
+const URL_BACKEND = environment.api_url + "cards/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+  findCardsByListId(id: number): Observable<ICard[]>{
+    return this.httpClient.get<ICard[]>(URL_BACKEND + "list/" + id);
+  }
+  changePositionCard(cards: ICard[]): Observable<any>{
+    return this.httpClient.put(URL_BACKEND + "changePosition", cards);
+  }
 }
