@@ -35,14 +35,14 @@ export class ShowListComponent implements OnInit {
     })
   }
   drop(event: CdkDragDrop<IList[]>) {
-    if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
+      this.changeListPosition(event.container.data);
+  }
+  changeListPosition(lists: IList[]){
+    for (let i = 0; i < lists.length; i++) {
+      lists[i].position = i
     }
+    this.listService.editPositionList(lists).subscribe(() => {})
   }
 
 
