@@ -1,11 +1,14 @@
-import {EventEmitter, Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IUserToken} from '../../interface/i-user-token';
-import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+// @ts-ignore
+import EventEmitter = require('node:events');
+
 
 const API_URL = environment.api_url;
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })

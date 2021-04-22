@@ -1,8 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CardService} from '../../service/cardService/card.service';
 import {ICard} from '../../interface/i-card';
+import {CardService} from '../../service/cardService/card.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
+
+// @ts-ignore
 @Component({
   selector: 'app-show-card-by-list-id',
   templateUrl: './show-card-by-list-id.component.html',
