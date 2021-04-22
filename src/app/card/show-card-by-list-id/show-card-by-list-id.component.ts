@@ -10,7 +10,16 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class ShowCardByListIdComponent implements OnInit {
   @Input()
-  list_id = 0;
+  list_id: any = 0;
+  // @Input("listId")
+  // get listId(){
+  //   return this.list_id;
+  // }
+  // set listId(value){
+  //   let  v = Number(value);
+  //   this.list_id = Number.isNaN(v)? 0 : v;
+  // }
+
   cards: ICard[] =[]
 
   constructor(private cardService: CardService) {
