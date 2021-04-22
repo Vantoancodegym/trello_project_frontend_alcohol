@@ -20,4 +20,7 @@ export class CardService {
   editCard(id: number, card: ICard): Observable<any>{
     return this.httpClient.put(URL_BACKEND + "edit/" + id, card);
   }
+  findCardById(id: number): Observable<ICard>{
+    return this.httpClient.get<ICard>(URL_BACKEND + id);
+  }
 }
