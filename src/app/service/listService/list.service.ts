@@ -13,4 +13,10 @@ export class ListService {
   getListByBoardId(id: number): Observable<IList[]>{
     return this.httpClient.get<IList[]>(URL_BACKEND + "board/" + id);
   }
+  createList(list: IList): Observable<any>{
+    return this.httpClient.post(URL_BACKEND + "createList", list);
+  }
+  editPositionList(lists: IList[]): Observable<any>{
+    return this.httpClient.put(URL_BACKEND + "editPositionList", lists);
+  }
 }
