@@ -22,8 +22,6 @@ export class ShowListComponent implements OnInit {
       // @ts-ignore
       this.board_id = +paramMap.get("boardId");
       this.findListByBoardId(this.board_id);
-      console.log(this._lists)
-      console.log(this.board_id)
     })
   }
 
