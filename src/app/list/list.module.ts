@@ -18,5 +18,5 @@ import {BrowserModule} from '@angular/platform-browser';
     CardModule,
     DragDropModule,
     BrowserModule
-    ]
+    ]})
 export class ListModule { }

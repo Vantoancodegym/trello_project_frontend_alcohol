@@ -1,11 +1,9 @@
 import {environment} from '../../../environments/environment';
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IUserToken} from '../../interface/i-user-token';
 import {map} from 'rxjs/operators';
-// @ts-ignore
-import EventEmitter = require('node:events');
-
+import {BehaviorSubject, Observable} from 'rxjs';
 
 const API_URL = environment.api_url;
 // @ts-ignore
@@ -38,7 +36,6 @@ export class AuthenService {
         return user;
       }));
   }
-
   logout() {
     localStorage.removeItem('user');
     // @ts-ignore
