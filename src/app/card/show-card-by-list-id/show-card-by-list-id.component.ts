@@ -29,6 +29,7 @@ export class ShowCardByListIdComponent implements OnInit {
   drop(event: CdkDragDrop<ICard[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      this.changePositionCard(event.container.data);
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
@@ -36,6 +37,14 @@ export class ShowCardByListIdComponent implements OnInit {
         event.currentIndex);
     }
   }
+  changePositionCard(cards: ICard[]){
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].position = i;
+    }
+    this.cardService.changePositionCard(cards).subscribe(() =>{
+    })
+  }
+
 
 
 }
