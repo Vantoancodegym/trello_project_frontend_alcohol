@@ -10,7 +10,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class ShowCardByListIdComponent implements OnInit {
   @Input()
-  _id = 0;
+  list_id = 0;
   cards: ICard[] =[]
 
   constructor(private cardService: CardService) {
@@ -18,8 +18,8 @@ export class ShowCardByListIdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showCardsByListId(this._id);
-    console.log(this._id)
+    this.showCardsByListId(this.list_id);
+    console.log(this.list_id)
   }
   showCardsByListId(id: number){
     this.cardService.findCardsByListId(id).subscribe(result => {

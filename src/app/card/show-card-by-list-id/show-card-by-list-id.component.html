@@ -1,41 +1,10 @@
-<div class="root">
-  <div class="navbar has-background-dark">
-    <div class="navbar-brand">
-      <div class="navbar-item">
-        <h1 class="app-name has-gradient-text">Trello Project Of Alcohol Team</h1>
-      </div>
-    </div>
+<div class="tasks-container"
+     cdkDropList
+     id="{{list_id}}"
+     [cdkDropListData]="cards"
+     (cdkDropListDropped)="drop($event)">
+  <div class="task" *ngFor="let item of cards" cdkDrag>
+    {{ item.title }}
   </div>
-
-  <div class="board">
-
-    <div class="board-bar">
-      <p class="board-name">Công việc</p>
-    </div>
-
-    <div class="board-wrapper" >
-
-      <div class="board-columns">
-        <div class="board-columns" cdkDropListGroup>
-          <div class="board-column">
-            <div class="column-title">
-              to do
-            </div>
-
-            <div class="tasks-container"
-                 cdkDropList
-                 [cdkDropListData]="cards"
-                 (cdkDropListDropped)="drop($event)">
-              <div class="task" *ngFor="let item of cards" cdkDrag>
-                {{ item.title }}
-              </div>
-              <div class="task" >+ add new</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
+  <div class="task" >+ add new</div>
 </div>
