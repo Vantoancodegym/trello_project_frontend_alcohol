@@ -7,4 +7,5 @@ export interface IUserToken {
   password?: string;
   email?: string;
   accessToken?: string;
+  avatar?: string
 }
