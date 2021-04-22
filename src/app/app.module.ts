@@ -8,6 +8,7 @@ import {JwtInterceptor} from './helper/jwt.interceptor';
 import {ErrorInterceptor} from './helper/error.interceptor';
 import {FormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CardModule} from './card/card.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    CardModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardService} from '../../service/cardService/card.service';
 import {ICard} from '../../interface/i-card';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-show-card-by-list-id',
@@ -8,28 +9,33 @@ import {ICard} from '../../interface/i-card';
   styleUrls: ['./show-card-by-list-id.component.scss']
 })
 export class ShowCardByListIdComponent implements OnInit {
-  id: number =0;
-  @Input('id')
-  get phones(){
-    return this.id;
-  }
-  set phones(value){
-    let  v = Number(value);
-    this.id = Number.isNaN(v)? 0 : v;
-  }
+  @Input()
+  _id = 0;
   cards: ICard[] =[]
 
   constructor(private cardService: CardService) {
-    this.showCardsByListId(this.id);
+
   }
 
   ngOnInit(): void {
+    this.showCardsByListId(this._id);
+    console.log(this._id)
   }
   showCardsByListId(id: number){
     this.cardService.findCardsByListId(id).subscribe(result => {
       this.cards = result;
     })
-
   }
+  drop(event: CdkDragDrop<ICard[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+
 
 }
