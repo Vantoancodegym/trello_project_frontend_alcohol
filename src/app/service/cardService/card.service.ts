@@ -17,4 +17,7 @@ export class CardService {
   changePositionCard(cards: ICard[]): Observable<any>{
     return this.httpClient.put(URL_BACKEND + "changePosition", cards);
   }
+  editCard(id: number, card: ICard): Observable<any>{
+    return this.httpClient.put(URL_BACKEND + "edit/" + id, card);
+  }
 }
