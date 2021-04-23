@@ -10,8 +10,8 @@
   </div>
   <div class="modal-body">
     <form (ngSubmit)="createCard()">
-      <input [(ngModel)]="card.title"><br>
-      <input [(ngModel)]="card.content"><br>
+      <input [(ngModel)]="card.title" name="title"><br>
+      <input [(ngModel)]="card.content" name="content"><br>
       <input type="submit" value="Create"><br>
     </form>
   </div>

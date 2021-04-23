@@ -24,7 +24,7 @@ export class CreateCardComponent implements OnInit {
     this.card.list= {
       id : this.list_id
     }
-    this.cardService.createCard(this.card).subscribe()
+    this.cardService.createCard(this.card).subscribe(() =>{})
   }
 
   openModalWithClass(template: TemplateRef<any>) {
