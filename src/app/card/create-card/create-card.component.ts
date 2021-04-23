@@ -2,6 +2,7 @@ import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {ICard} from '../../interface/i-card';
 import {CardService} from '../../service/cardService/card.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-card',
@@ -17,14 +18,17 @@ export class CreateCardComponent implements OnInit {
 
   // @ts-ignore
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService, private cardService: CardService) { }
+  constructor(private modalService: BsModalService, private cardService: CardService, private router: Router) { }
   ngOnInit() {
   }
   createCard(){
     this.card.list= {
       id : this.list_id
     }
-    this.cardService.createCard(this.card).subscribe(() =>{})
+    this.cardService.createCard(this.card).subscribe(() =>{
+      this.router.navigateByUrl("/board/2");
+      alert("ok")
+    })
   }
 
   openModalWithClass(template: TemplateRef<any>) {
