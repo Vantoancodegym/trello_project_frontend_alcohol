@@ -1,1 +1,22 @@
-<p>create-card works!</p>
+<button type="button" (click)="openModalWithClass(template)">+ Add new</button>
+<br>
+<ng-template #template>
+  <div class="modal-content">
+  <div class="modal-header">
+    <p class="modal-title pull-left">Create new card</p>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="createCard()">
+      <input [(ngModel)]="card.title"><br>
+      <input [(ngModel)]="card.content"><br>
+      <input type="submit" value="Create"><br>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>
+  </div>
+  </div>
+</ng-template>
