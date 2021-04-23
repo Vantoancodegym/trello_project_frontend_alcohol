@@ -46,6 +46,9 @@ export class ShowCardByListIdComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+      // @ts-ignore
+      event.container.data[event.currentIndex].list.id = event.container.id;
+      this.changePositionCard(event.container.data)
     }
   }
   changePositionCard(cards: ICard[]){
