@@ -3,6 +3,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {ICard} from '../../interface/i-card';
 import {CardService} from '../../service/cardService/card.service';
 import {Router} from '@angular/router';
+import {ListService} from '../../service/listService/list.service';
 
 @Component({
   selector: 'app-create-card',
@@ -15,21 +16,22 @@ export class CreateCardComponent implements OnInit {
   card: ICard = {};
   // @ts-ignore
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService, private cardService: CardService, private router: Router) { }
+  constructor(private modalService: BsModalService, private cardService: CardService, private router: Router, private listService: ListService) {
+
+  }
   ngOnInit() {
+    this.listService.findListById(this.list_id).subscribe(list => {
+      // @ts-ignore
+      this.card.list = list;
+    })
   }
   createCard(){
-    this.card.list= {
-      id : this.list_id,
-    }
     this.cardService.createCard(this.card).subscribe(() =>{
-      // @ts-ignore
-      // this.router.navigateByUrl("/board/"+this.card.list.board.id);
-      // alert("ok")
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       // @ts-ignore
-      this.router.navigateByUrl("/board/" + this.card.list?.board?.id);    })
+      this.router.navigateByUrl("/board/" + this.card.list?.board?.id) ;
+    })
   }
 
   openModalWithClass(template: TemplateRef<any>) {

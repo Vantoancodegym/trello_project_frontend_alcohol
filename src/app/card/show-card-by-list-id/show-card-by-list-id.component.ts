@@ -30,7 +30,6 @@ export class ShowCardByListIdComponent implements OnInit {
 
   ngOnInit(): void {
     this.showCardsByListId(this.list_id);
-    console.log(this.list_id)
   }
   showCardsByListId(id: number){
     this.cardService.findCardsByListId(id).subscribe(result => {
