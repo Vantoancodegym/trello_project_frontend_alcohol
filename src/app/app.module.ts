@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CardModule} from './card/card.module';
 import {ListModule} from './list/list.module';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import {ListModule} from './list/list.module';
     FormsModule,
     DragDropModule,
     CardModule,
+    ModalModule.forRoot(),
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

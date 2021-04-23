@@ -23,4 +23,7 @@ export class CardService {
   findCardById(id: number): Observable<ICard>{
     return this.httpClient.get<ICard>(URL_BACKEND + id);
   }
+  createCard(card: ICard): Observable<any>{
+    return this.httpClient.post(URL_BACKEND + "create",card);
+  }
 }

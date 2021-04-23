@@ -19,4 +19,7 @@ export class ListService {
   editPositionList(lists: IList[]): Observable<any>{
     return this.httpClient.put(URL_BACKEND + "editPositionList", lists);
   }
+  findListById(id: number): Observable<IList>{
+    return this.httpClient.get<IList>(URL_BACKEND + "findList/"+id);
+  }
 }
