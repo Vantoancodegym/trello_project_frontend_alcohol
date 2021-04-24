@@ -1,0 +1,31 @@
+<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">
+  <i class="bi bi-list-ul"></i></button>
+<br>
+<ng-template #template>
+  <div class="modal-content">
+    <div class="modal-header">
+      <p class="modal-title pull-left">Card detail</p>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="col-10" style="float: left">
+      <h5>Title</h5>
+      <p>{{card.title}}</p>
+      <h5>Content</h5>
+      <p>{{card.content}}</p>
+      </div>
+      <div class="col-1">
+        <ul>
+        <li><app-edit-card [card_id]="card_id"></app-edit-card></li>
+      </ul>
+      </div>
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>
+    </div>
+  </div>
+</ng-template>
