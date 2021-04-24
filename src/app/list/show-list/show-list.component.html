@@ -26,11 +26,13 @@
             </div>
             <app-show-card-by-list-id [list_id]="item.id"></app-show-card-by-list-id>
           </div>
-          <div class="board-column" >+ add new</div>
+          <div class="board-column"  >
+            <button mat-flat-button color="primary" (click)="addNewList()">
+            <mat-icon aria-hidden="false" aria-label="Add">add</mat-icon>
+            Add
+          </button></div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
