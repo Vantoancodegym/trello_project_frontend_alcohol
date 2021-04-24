@@ -4,6 +4,7 @@
      [cdkDropListData]="cards"
      (cdkDropListDropped)="drop($event)">
   <div class="task" *ngFor="let item of cards" cdkDrag>
+
     {{ item.title }}
   </div>
   <div class="task" ><app-create-card [list_id]="list_id"></app-create-card></div>
