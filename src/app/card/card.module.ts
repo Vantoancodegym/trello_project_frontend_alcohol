@@ -10,13 +10,15 @@ import {ShowListComponent} from '../list/show-list/show-list.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
 import { EditCardComponent } from './edit-card/edit-card.component';
+import { DetailCardComponent } from './detail-card/detail-card.component';
 
 
 @NgModule({
   declarations: [
     ShowCardByListIdComponent,
     CreateCardComponent,
-    EditCardComponent
+    EditCardComponent,
+    DetailCardComponent
   ],
   exports: [
     ShowCardByListIdComponent,
