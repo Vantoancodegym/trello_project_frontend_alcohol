@@ -11,6 +11,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CardModule} from './card/card.module';
 import {ListModule} from './list/list.module';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -25,6 +28,8 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     DragDropModule,
     CardModule,
     ModalModule.forRoot(),
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
 
   ],
   providers: [

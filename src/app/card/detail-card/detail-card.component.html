@@ -10,18 +10,20 @@
       </button>
     </div>
     <div class="modal-body">
-      <div class="col-10" style="float: left">
+      <div class="col-8" style="float: left">
       <h5>Title</h5>
       <p>{{card.title}}</p>
       <h5>Content</h5>
       <p>{{card.content}}</p>
+      <div *ngFor="let item of mediaFiles">
+        <a href="{{item.link}}">file</a></div>
       </div>
       <div class="col-1">
         <ul>
         <li><app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card></li>
+        <li><input type = "file" (change)="onFileSelected($event)" name="file" id="file"></li>
       </ul>
       </div>
-
 
     </div>
     <div class="modal-footer">
