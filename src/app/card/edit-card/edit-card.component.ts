@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {ICard} from '../../interface/i-card';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {CardService} from '../../service/cardService/card.service';
@@ -27,8 +27,11 @@ export class EditCardComponent implements OnInit {
   ngOnInit(): void {
     this.getCardById(this.card_id);
   }
+  @Output()
+  isUpdate = new EventEmitter();
   editCard(){
     this.cardService.editCard(this.card_id, this.card).subscribe(() =>{
+      this.isUpdate.emit(true);
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       // @ts-ignore
