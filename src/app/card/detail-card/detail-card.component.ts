@@ -48,9 +48,9 @@ export class DetailCardComponent implements OnInit {
   onFileSelected(event: any) {
     let n = Date.now();
     const file = event.target.files[0];
-    const filePath = `RoomsImages/${n}`;
+    const filePath = `trelloFIle/${n}`;
     const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(`RoomsImages/${n}`, file);
+    const task = this.storage.upload(filePath, file);
     task
       .snapshotChanges()
       .pipe(
@@ -60,10 +60,13 @@ export class DetailCardComponent implements OnInit {
             if (url) {
               this.url = url;
             }
-            console.log(this.url);
           });
         })
-      );
+      ).subscribe(url => {
+      if (url) {
+        console.log("Upload success");
+      }
+    });
   }
 }
 

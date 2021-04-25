@@ -19,7 +19,7 @@
       <div class="col-1">
         <ul>
         <li><app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card></li>
-        <li><input type = "file"></li>
+        <li><input type = "file" (change)="onFileSelected($event)" name="file" id="file"></li>
       </ul>
       </div>
 
