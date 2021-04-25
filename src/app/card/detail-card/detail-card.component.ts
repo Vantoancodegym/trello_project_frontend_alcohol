@@ -5,6 +5,8 @@ import {CardService} from '../../service/cardService/card.service';
 import {Observable} from 'rxjs';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
+import {IMediaFile} from '../../interface/media-file';
+import {MediaFileService} from '../../service/mediaFile/media-file.service';
 
 @Component({
   selector: 'app-detail-card',
@@ -22,8 +24,11 @@ export class DetailCardComponent implements OnInit {
   selectedFile: File = null;
   // @ts-ignore
   downloadURL: Observable<string>;
+  // @ts-ignore
+  mediaFiles: IMediaFile[];
 
-  constructor(private modalService: BsModalService, private cardService: CardService, private storage: AngularFireStorage) {
+  constructor(private modalService: BsModalService, private cardService: CardService,
+              private storage: AngularFireStorage, private mediaFileService: MediaFileService){
   }
 
   getCardById(id: number) {
@@ -31,12 +36,19 @@ export class DetailCardComponent implements OnInit {
       this.card = card;
     })
   }
+  getMediaFiles(id: number){
+    this.mediaFileService.getMediaFilesByCardId(id).subscribe(result =>{
+      this.mediaFiles = result;
+    })
+  }
   update(){
     this.getCardById(this.card_id);
+    this.getMediaFiles(this.card_id)
   }
 
   ngOnInit(): void {
     this.getCardById(this.card_id);
+    this.getMediaFiles(this.card_id);
   }
 
   openModalWithClass(template: TemplateRef<any>) {
@@ -59,6 +71,7 @@ export class DetailCardComponent implements OnInit {
           this.downloadURL.subscribe(url => {
             if (url) {
               this.url = url;
+              this.createMediaFile();
             }
           });
         })
@@ -66,6 +79,16 @@ export class DetailCardComponent implements OnInit {
       if (url) {
         console.log("Upload success");
       }
+    });
+  }
+  createMediaFile(){
+    let mediaFile: IMediaFile = {
+      link: this.url,
+      card: this.card
+    }
+    console.log(mediaFile)
+    this.mediaFileService.createMediaFile(mediaFile).subscribe(() => {
+      this.update()
     });
   }
 }
