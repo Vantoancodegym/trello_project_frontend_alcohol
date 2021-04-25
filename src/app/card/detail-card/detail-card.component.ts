@@ -23,6 +23,9 @@ export class DetailCardComponent implements OnInit {
       this.card = card;
     })
   }
+  update(){
+    this.getCardById(this.card_id);
+  }
 
   ngOnInit(): void {
     this.getCardById(this.card_id);
