@@ -6,10 +6,12 @@ import { ShowListComponent } from './show-list/show-list.component';
 import {CardModule} from '../card/card.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {BrowserModule} from '@angular/platform-browser';
+import { CreateListComponent } from './create-list/create-list.component';
 
 @NgModule({
   declarations: [
-    ShowListComponent
+    ShowListComponent,
+    CreateListComponent
   ],
     imports: [
         CommonModule,
