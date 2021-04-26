@@ -18,9 +18,8 @@
       <h5>Attach file</h5>
       <div *ngFor="let item of mediaFiles">
         <a href="{{item.link}}">file</a></div>
-        <div>
-          <span style="background: #2af598">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; &nbsp;
-        </div>
+        <span *ngFor="let l of labels"> <span [style.backgroundColor]="l.color">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; &nbsp; &nbsp;
+        </span>
       </div>
       <div class="col-1">
         <ul>
