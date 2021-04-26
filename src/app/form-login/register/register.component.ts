@@ -17,7 +17,6 @@ export class RegisterComponent implements OnInit {
     passWord: '',
     role: [],
   };
-  hide = true;
   constructor(private loginService: LoginServiceService, private router: Router) {
   }
 

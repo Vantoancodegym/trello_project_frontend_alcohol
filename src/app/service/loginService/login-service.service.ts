@@ -19,11 +19,11 @@ export class LoginServiceService {
 
   constructor(private httpClient: HttpClient) {
   }
-  loginUser(log: ILogin): Observable<ILogin> {
+  loginAppUser(log: ILogin): Observable<ILogin> {
     return this.httpClient.get<ILogin>(API_LOCAL+'login');
   }
 
   createAppUser(log: ILogin): Observable<ILogin> {
-    return this.httpClient.post<ILogin>(API_LOCAL, log);
+    return this.httpClient.post<ILogin>(API_LOCAL+'list/create', log);
   }
 }
