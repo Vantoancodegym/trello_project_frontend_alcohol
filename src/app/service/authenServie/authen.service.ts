@@ -1,12 +1,14 @@
-import {EventEmitter, Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IUserToken} from '../../interface/i-user-token';
-import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+
 import {IUser} from '../../interface/i-user';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 const API_URL = environment.api_url;
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +42,6 @@ export class AuthenService {
         return user;
       }));
   }
-
   logout() {
     localStorage.removeItem('user');
     // @ts-ignore

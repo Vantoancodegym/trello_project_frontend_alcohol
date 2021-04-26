@@ -21,16 +21,17 @@
 
         <div class="board-columns" cdkDropListGroup>
           <div class="board-column" *ngFor="let item of _lists" cdkDrag >
+
             <div class="column-title">
               {{ item.title }}
+              <app-edit-title-list [list_id]="item.id"></app-edit-title-list>
             </div>
             <app-show-card-by-list-id [list_id]="item.id"></app-show-card-by-list-id>
           </div>
-          <div class="board-column" >+ add new</div>
+          <div class="board-column"  >
+            <app-create-list [board_id]="board_id"></app-create-list></div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
