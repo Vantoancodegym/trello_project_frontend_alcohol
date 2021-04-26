@@ -28,6 +28,7 @@ import {environment} from '../environments/environment';
     DragDropModule,
     CardModule,
     ModalModule.forRoot(),
+    ListModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
 
