@@ -8,11 +8,13 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {BrowserModule} from '@angular/platform-browser';
 import { CreateListComponent } from './create-list/create-list.component';
 import {FormsModule} from "@angular/forms";
+import { EditTitleListComponent } from './edit-title-list/edit-title-list.component';
 
 @NgModule({
   declarations: [
     ShowListComponent,
     CreateListComponent,
+    EditTitleListComponent,
   ],
     imports: [
         CommonModule,
