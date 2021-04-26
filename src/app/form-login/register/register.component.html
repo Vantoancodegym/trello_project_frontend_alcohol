@@ -27,7 +27,13 @@
     <div class="mb-3">
       <mat-icon color="warn"> satellite</mat-icon>
       <label for="avata" class="form-label">Avata</label>
-      <input type="text" class="form-control" id="avata"  [(ngModel)]="login.avatar" name="avatar">
+      <br>
+      <input type="file" type="file"
+             id="avata"
+             #userPhoto
+             (change)="onFileSelected($event)"
+             name="image"
+             autocomplete="off">
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="float: right; width: 120px">
       <button class="btn btn-primary" type="button" [routerLink]="'/form/login'">Back to login</button>

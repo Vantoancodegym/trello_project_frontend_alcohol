@@ -19,7 +19,7 @@
       <div *ngFor="let item of mediaFiles">
         <a href="{{item.link}}">file</a></div>
       <h5>Labels</h5>
-        <span *ngFor="let l of labels"> <span [style.backgroundColor]="l.color">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; &nbsp;
+        <span *ngFor="let l of labels"> <span [style.backgroundColor]="l.color">{{l.title}}</span> &nbsp; &nbsp;
         </span>
       </div>
       <div class="col-1">

@@ -32,10 +32,6 @@ export class EditTitleListComponent implements OnInit {
   editTitleList(){
     this.listService.editTitleList(this.list, this.list_id).subscribe(() =>{
       this.isUpdate.emit(true);
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-      // @ts-ignore
-      this.router.navigateByUrl("/board/" + this.list?.board?.id) ;
     });
   }
   openModalWithClass(template: TemplateRef<any>) {

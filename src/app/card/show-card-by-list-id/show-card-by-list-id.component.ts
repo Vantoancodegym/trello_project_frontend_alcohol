@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ICard} from '../../interface/i-card';
 import {CardService} from '../../service/cardService/card.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
@@ -49,6 +49,11 @@ export class ShowCardByListIdComponent implements OnInit {
       event.container.data[event.currentIndex].list.id = event.container.id;
       this.changePositionCard(event.container.data)
     }
+  }
+  @Output()
+  isChanged = new EventEmitter();
+  changeOutput(){
+    this.isChanged.emit(true)
   }
   changePositionCard(cards: ICard[]){
     for (let i = 0; i < cards.length; i++) {
