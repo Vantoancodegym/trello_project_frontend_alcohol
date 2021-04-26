@@ -28,12 +28,7 @@ export class ListService {
   getBoardById(id: number): Observable<IBoard>{
     return this.httpClient.get(URL_BACKEND+`board/findBoardById` + id);
   }
-  addNewList(title: string, board: IBoard): void {
-    this.lists.push({
-      title: title,
-      board: board
-    })
-  }
+
   findListById(id:number): Observable<IList>{
     return this.httpClient.get<IList>(URL_BACKEND + "findList/"+ id);
   }
