@@ -12,7 +12,7 @@ export class LoginServiceService {
   constructor(private httpClient: HttpClient) {
   }
   loginAppUser(log: ILogin): Observable<ILogin> {
-    return this.httpClient.get<ILogin>(API_LOCAL+'login');
+    return this.httpClient.post<ILogin>(API_LOCAL+'login',log);
   }
 
   createAppUser(log: ILogin): Observable<ILogin> {
