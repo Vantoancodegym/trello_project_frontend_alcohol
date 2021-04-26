@@ -7,11 +7,12 @@ import {CardModule} from '../card/card.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {BrowserModule} from '@angular/platform-browser';
 import { CreateListComponent } from './create-list/create-list.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     ShowListComponent,
-    CreateListComponent
+    CreateListComponent,
   ],
     imports: [
         CommonModule,
@@ -19,5 +20,6 @@ import { CreateListComponent } from './create-list/create-list.component';
         CardModule,
         DragDropModule,
         BrowserModule,
+        FormsModule,
     ]})
 export class ListModule { }

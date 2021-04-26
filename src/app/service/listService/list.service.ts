@@ -4,7 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {IList} from '../../interface/i-list';
 import {IBoard} from '../../interface/i-board';
-const URL_BACKEND = environment.api_url
+const URL_BACKEND = environment.api_url;
 @Injectable({
   providedIn: 'root'
 })

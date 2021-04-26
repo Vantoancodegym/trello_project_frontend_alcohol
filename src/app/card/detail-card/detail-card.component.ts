@@ -86,7 +86,6 @@ export class DetailCardComponent implements OnInit {
       link: this.url,
       card: this.card
     }
-    console.log(mediaFile)
     this.mediaFileService.createMediaFile(mediaFile).subscribe(() => {
       this.update()
     });
