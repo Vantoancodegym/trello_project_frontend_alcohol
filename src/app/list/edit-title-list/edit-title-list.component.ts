@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-edit-title-list',
   templateUrl: './edit-title-list.component.html',
