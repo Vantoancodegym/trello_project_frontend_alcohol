@@ -33,6 +33,10 @@ export class ShowListComponent implements OnInit {
       this.findBoardById(this.board_id);
     })
   }
+  update(){
+    this.findListByBoardId(this.board_id);
+    this.findBoardById(this.board_id);
+  }
 
   ngOnInit(): void {
   }
