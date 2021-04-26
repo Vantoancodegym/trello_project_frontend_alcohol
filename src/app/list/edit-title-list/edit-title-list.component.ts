@@ -38,5 +38,10 @@ export class EditTitleListComponent implements OnInit {
       this.router.navigateByUrl("/board/" + this.list?.board?.id) ;
     });
   }
-
+  openModalWithClass(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: 'center modal-lg' })
+    );
+  }
 }
