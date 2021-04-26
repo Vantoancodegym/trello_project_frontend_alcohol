@@ -32,4 +32,7 @@ export class ListService {
   findListById(id:number): Observable<IList>{
     return this.httpClient.get<IList>(URL_BACKEND + "findList/"+ id);
   }
+  editTitleList(list: IList, id: number): Observable<IList>{
+    return this.httpClient.put(URL_BACKEND+"editTitleList/"+ id, list);
+  }
 }

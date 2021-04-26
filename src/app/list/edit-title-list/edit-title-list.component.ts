@@ -11,7 +11,7 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 export class EditTitleListComponent implements OnInit {
   // @ts-ignore
   @Input()
-  id: number = 0;
+  list_id: any = 0;
   list: IList = {
     title : "",
     board: {
@@ -23,14 +23,14 @@ export class EditTitleListComponent implements OnInit {
   constructor(private modalService: BsModalService,private listService: ListService,private router: Router) { }
 
   ngOnInit(): void {
-    this.listService.findListById(this.id).subscribe( result => {
+    this.listService.findListById(this.list_id).subscribe( result => {
       this.list = result;
     })
   }
   @Output()
   isUpdate = new EventEmitter();
   editTitleList(){
-    this.listService.editTitleList(this.list, this.id).subscribe(() =>{
+    this.listService.editTitleList(this.list, this.list_id).subscribe(() =>{
       this.isUpdate.emit(true);
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';

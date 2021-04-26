@@ -16,6 +16,7 @@ export class ShowListComponent implements OnInit {
   sub: Subscription;
   _lists: IList[] = [];
   board_id: number =1;
+  list_id: number =1;
   // @ts-ignore
   board: IBoard;
   // @ts-ignore
