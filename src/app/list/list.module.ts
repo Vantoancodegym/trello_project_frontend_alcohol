@@ -9,12 +9,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import { CreateListComponent } from './create-list/create-list.component';
 import {FormsModule} from "@angular/forms";
 import { EditTitleListComponent } from './edit-title-list/edit-title-list.component';
+import { DetailListComponent } from './detail-list/detail-list.component';
 
 @NgModule({
   declarations: [
     ShowListComponent,
     CreateListComponent,
     EditTitleListComponent,
+    DetailListComponent,
   ],
     imports: [
         CommonModule,

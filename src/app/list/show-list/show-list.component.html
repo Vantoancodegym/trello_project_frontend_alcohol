@@ -21,8 +21,10 @@
 
         <div class="board-columns" cdkDropListGroup>
           <div class="board-column" *ngFor="let item of _lists" cdkDrag >
+
             <div class="column-title">
               {{ item.title }}
+<!--              <div  style="position: absolute; right: 0; top: 0"><app-detail-card [card_id]="item.id"></app-detail-card></div>-->
             </div>
             <app-show-card-by-list-id [list_id]="item.id"></app-show-card-by-list-id>
           </div>
