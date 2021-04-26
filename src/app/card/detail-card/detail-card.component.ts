@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {ICard} from '../../interface/i-card';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {CardService} from '../../service/cardService/card.service';
@@ -50,10 +50,13 @@ export class DetailCardComponent implements OnInit {
       this.labels = labels
     })
   }
+  @Output()
+  isUpdate = new EventEmitter();
   update(){
     this.getCardById(this.card_id);
     this.getMediaFiles(this.card_id);
     this.getLabels(this.card_id);
+    this.isUpdate.emit(true);
   }
 
   ngOnInit(): void {
