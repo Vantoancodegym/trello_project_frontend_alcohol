@@ -25,7 +25,7 @@
         <ul>
         <app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card>
         <input type = "file" (change)="onFileSelected($event)" name="file" id="file" style="padding-bottom: 5px"><br>
-         <app-create-label [card_id]="card_id"></app-create-label>
+         <app-create-label [card_id]="card_id" (isAddLabel)="update()"></app-create-label>
       </ul>
       </div>
 

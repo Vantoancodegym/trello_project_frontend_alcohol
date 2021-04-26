@@ -4,5 +4,5 @@ import {ILabel} from './label';
 export interface ICardLabel {
   id?: number
   card? : ICard,
-  label?: ILabel
+  labels?: ILabel
 }
