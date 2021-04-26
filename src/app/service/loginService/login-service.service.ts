@@ -8,14 +8,6 @@ const API_LOCAL = environment.api_url;
   providedIn: 'root'
 })
 export class LoginServiceService {
-  log: ILogin = {
-    id: 0,
-    avatar: '',
-    email: '',
-    userName: '',
-    passWord: '',
-    role: [],
-  };
 
   constructor(private httpClient: HttpClient) {
   }
