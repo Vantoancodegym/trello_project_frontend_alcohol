@@ -5,6 +5,8 @@ import {ListService} from '../../service/listService/list.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {IBoard} from '../../interface/i-board';
+import {AuthenService} from '../../service/authenServie/authen.service';
+import {BoardService} from '../../service/boardService/board.service';
 
 @Component({
   selector: 'app-show-list',
@@ -25,7 +27,9 @@ export class ShowListComponent implements OnInit {
   @Input() listIndex: number;
   input: string = "";
 
-  constructor(private listService: ListService,  private activatedRoute: ActivatedRoute) {
+
+  constructor(private listService: ListService,  private activatedRoute: ActivatedRoute,
+              public authenService: AuthenService ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       // @ts-ignore
       this.board_id = +paramMap.get("boardId");
@@ -40,6 +44,7 @@ export class ShowListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   findListByBoardId(id: number){
     return this.listService.getListByBoardId(id).subscribe(result =>{
       this._lists = result;
@@ -57,31 +62,9 @@ export class ShowListComponent implements OnInit {
   }
   // mung write
   findBoardById(id: number){
-    return this.listService.getListByBoardId(id).subscribe(result => {
+    return this.listService.getBoardById(id).subscribe(result => {
       // @ts-ignore
       this.board = result;
     })
-  }
-  addNewList(){
-// Do not add list or job with no name
-//     if (this.input.trim()) {
-//       // Add List
-//       if (this.listIndex === undefined) {
-//         this.listService.addNewList(this.input,this.board);
-//         this.snackBar.open("New List was created successfully!", "Dismiss", {
-//           duration: 2000,
-//         });
-//       }
-//   //     // Add job
-//   //     else {
-//   //       this.listService.addNewJob(this.listIndex, this.input);
-//   //
-//   //       this.snackBar.open("New Job was created successfully!", "Dismiss", {
-//   //         duration: 2000,
-//   //       });
-//   //     }
-//   //
-//   //     this.input = "";
-//     }
   }
 }

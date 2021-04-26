@@ -3,7 +3,7 @@ import {IRole} from './i-role';
 export interface IUserToken {
   roles?: IRole[]
   id?: number;
-  userName?: string;
+  username?: string;
   passWord?: string;
   email?: string;
   accessToken?: string;

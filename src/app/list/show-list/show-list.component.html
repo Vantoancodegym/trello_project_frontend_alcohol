@@ -9,8 +9,12 @@
 
   <div class="board">
 
-    <div class="board-bar">
-      <p class="board-name">Board name</p>
+    <div class="board-bar" style="position: relative">
+      <p class="board-name">{{board.name}}</p>
+      <div style="position: absolute; right: 5%; top: 0">
+        <h5>Welcome {{authenService.currentUserValue.username}}</h5>
+        <p>Logout</p>
+      </div>
     </div>
 
     <div class="board-wrapper" >
