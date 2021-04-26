@@ -1,0 +1,42 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">REGISTER FORM</h1>
+  </div>
+
+</section>
+
+<div class="container">
+  <form (ngSubmit)="registionUser()">
+    <div class="mb-3">
+      <mat-icon color="warn">account_box</mat-icon>
+      <label for="userName" class="form-label">User Name</label>
+
+      <input type="text" class="form-control" id="userName" placeholder="Enter your user name" [(ngModel)]="login.userName"
+             name="useName">
+
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="text" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="login.passWord" name="passWord">
+    </div>
+    <div class="mb-3">
+      <mat-icon color="warn"> email</mat-icon>
+      <label for="email" class="form-label">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter your email" [(ngModel)]="login.email" name="email">
+    </div>
+    <div class="mb-3">
+      <mat-icon color="warn"> satellite</mat-icon>
+      <label for="avata" class="form-label">Avata</label>
+      <input type="text" class="form-control" id="avata"  [(ngModel)]="login.avatar" name="avatar">
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="float: right; width: 120px">
+      <button class="btn btn-primary" type="button" [routerLink]="'/form/login'">Back to login</button>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+      <button class="btn btn-primary" type="submit" value="submit">Register</button>
+    </div>
+
+  </form>
+</div>
+
+
