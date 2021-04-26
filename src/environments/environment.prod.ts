@@ -1,5 +1,8 @@
 export const environment = {
   production: true,
+
+  API_LOCAL : 'http://localhost:8080/list/'
+
   firebaseConfig : {
     apiKey: "AIzaSyDb8Fn1YnMY6F24h7zmUinPbiGQGv5Texc",
     authDomain: "trello-project-firebase.firebaseapp.com",
