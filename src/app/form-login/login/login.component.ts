@@ -40,14 +40,15 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.authenService.login(this.login.userName, this.login.passWord).pipe(first()).subscribe(
-      ()=>{
-      this.authenService.currentUserValue.accessToken;
-      this.router.navigate(['/card'])
-    },
+      () => {
+        this.authenService.currentUserValue.accessToken;
+        this.router.navigate(['/card']);
+      },
       error => {
         this.isLoginFailed = true;
       }
-      );
+    );
   }
+
 
 }

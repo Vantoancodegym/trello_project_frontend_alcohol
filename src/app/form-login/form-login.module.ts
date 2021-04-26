@@ -9,12 +9,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { LogOutComponent } from './log-out/log-out.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogOutComponent
+  ],
+  exports: [
+    LoginComponent,
+    LogOutComponent
   ],
   imports: [
     CommonModule,
