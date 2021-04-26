@@ -24,7 +24,7 @@
 
             <div class="column-title">
               {{ item.title }}
-              <app-edit-title-list [list_id]="item.id"></app-edit-title-list>
+              <app-edit-title-list [list_id]="item.id" (isUpdate)="update()"></app-edit-title-list>
             </div>
             <app-show-card-by-list-id [list_id]="item.id"></app-show-card-by-list-id>
           </div>
