@@ -19,6 +19,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import {LabelsModule} from './labels/labels.module';
 
 
 
@@ -42,6 +43,7 @@ import {environment} from '../environments/environment';
     ListModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    LabelsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
