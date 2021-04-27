@@ -13,7 +13,7 @@ const routes: Routes = [
     component: ShowListComponent
   },
   {
-    path: 'create',
+    path: 'board/duyet/create',
     component: CreateComponent
   },
   {

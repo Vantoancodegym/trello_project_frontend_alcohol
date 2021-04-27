@@ -1,7 +1,7 @@
 import {IBoard} from './i-board';
 
 export interface IList {
-  id? : number;
+  id?: number;
   title?: string;
   position?: number;
   board?: IBoard;

@@ -1,1 +1,8 @@
 <p>tag-user-board works!</p>
+<form (ngSubmit)="create()">
+  <input name="board" [(ngModel)]="tagAppUser.board.name" >
+  <select [(ngModel)]="tagAppUser.appUser.id">
+    <option *ngFor="let u of listUser" name="user" [value]="u.id">{{u.userName}}</option>
+  </select>
+  <input type="submit" value="create">
+</form>

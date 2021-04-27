@@ -3,6 +3,7 @@ import {IBoard} from '../../interface/i-board';
 import {Subscription} from 'rxjs';
 import {BoardService} from '../../service/boardService/board.service';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {AuthenService} from "../../service/authenServie/authen.service";
 
 @Component({
   selector: 'app-list-board-app-user',
@@ -34,22 +35,18 @@ export class ListBoardAppUserComponent implements OnInit {
       }
     }
   ] ;
-  sub: Subscription;
   id = 0;
 
   constructor(private boardService: BoardService,
-              private router: Router,
-              private avt: ActivatedRoute) {
-    this.sub = this.avt.paramMap.subscribe((p: ParamMap) => {
-      // @ts-ignore
-      this.id = +p.get('id');
-      this.showAll(this.id);
-    });
+              private router: Router, private authenService: AuthenService){
+    this.showAll();
   }
 
 
   // tslint:disable-next-line:typedef
-  showAll(id: number) {
+  showAll() {
+    let id = this.authenService.currentUserValue.id;
+    // @ts-ignore
     this.boardService.getAllBoardByAppUser(id).subscribe(boards => {
       // @ts-ignore
       this.boards = boards;
