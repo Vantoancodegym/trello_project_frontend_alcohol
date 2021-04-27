@@ -1,1 +1,14 @@
 <p>list-board-app-user works!</p>
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <td>NAME</td>
+      <td>APP_USER_NAME</td>
+    </tr>
+    <tr *ngFor=" let b of boards">
+      <td >{{b.name}}</td>
+      <td >{{b.appUser.userName}}</td>
+    </tr>
+
+  </table>
+</div>

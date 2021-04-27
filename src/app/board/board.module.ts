@@ -6,6 +6,8 @@ import { CreateComponent } from './create/create.component';
 import { ListBoardAppUserComponent } from './list-board-app-user/list-board-app-user.component';
 import { TagUserBoardComponent } from './tag-user-board/tag-user-board.component';
 import { ListBoardTagUserComponent } from './list-board-tag-user/list-board-tag-user.component';
+import { HomeComponent } from './home/home.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { ListBoardTagUserComponent } from './list-board-tag-user/list-board-tag-
     CreateComponent,
     ListBoardAppUserComponent,
     TagUserBoardComponent,
-    ListBoardTagUserComponent
+    ListBoardTagUserComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    BoardRoutingModule
+    BoardRoutingModule,
+    FormsModule
   ]
 })
 export class BoardModule { }

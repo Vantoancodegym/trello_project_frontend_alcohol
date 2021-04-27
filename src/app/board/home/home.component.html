@@ -1,13 +1,16 @@
-<p>list-board-tag-user works!</p>
+<p>home works!</p>
 <div class="container">
+  <a [routerLink]="'create'" >CREATE BOARD</a>
   <table class="table table-striped">
     <tr>
+      <th>STT</th>
       <td>NAME</td>
+      <td>APP_USER_ID</td>
     </tr>
-    <tr *ngFor="let b of boards">
+    <tr *ngFor="let b of boards, index as i">
+      <td>{{i+1}}</td>
       <td >{{b.name}}</td>
       <td >{{b.appUser.userName}}</td>
-      <td ><td ><a [routerLink]="'/boardAppUser/create'" >TAG_USER</a></td>
     </tr>
   </table>
 </div>
