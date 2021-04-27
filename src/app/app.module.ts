@@ -10,11 +10,22 @@ import {FormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CardModule} from './card/card.module';
 import {ListModule} from './list/list.module';
+
+// @ts-ignore
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+
+// @ts-ignore
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {LabelsModule} from './labels/labels.module';
+
 
 
 // @ts-ignore
@@ -30,11 +41,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     DragDropModule,
     CardModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ModalModule.forRoot(),
     ListModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+
     BrowserAnimationsModule,
+
+
+    LabelsModule
 
   ],
   providers: [

@@ -9,8 +9,12 @@
 
   <div class="board">
 
-    <div class="board-bar">
-      <p class="board-name">Board name</p>
+    <div class="board-bar" style="position: relative">
+      <p class="board-name">{{board.name}}</p>
+      <div style="position: absolute; right: 5%; top: 0">
+        <h5>Welcome {{authenService.currentUserValue.username}}</h5>
+        <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit password</a></p>
+      </div>
     </div>
 
     <div class="board-wrapper" >
@@ -20,16 +24,16 @@
            (cdkDropListDropped)="drop($event)">
 
         <div class="board-columns" cdkDropListGroup>
-          <div class="board-column" *ngFor="let item of _lists" cdkDrag >
+          <div class="board-column"  *ngFor="let item of _lists" cdkDrag >
 
             <div class="column-title">
               {{ item.title }}
-              <app-edit-title-list [list_id]="item.id"></app-edit-title-list>
+              <app-edit-title-list [list_id]="item.id" (isUpdate)="update()"></app-edit-title-list>
             </div>
-            <app-show-card-by-list-id [list_id]="item.id"></app-show-card-by-list-id>
+            <app-show-card-by-list-id [list_id]="item.id" (isChanged)="update()"></app-show-card-by-list-id>
           </div>
           <div class="board-column"  >
-            <app-create-list [board_id]="board_id"></app-create-list></div>
+            <app-create-list [board_id]="board_id" (isCreate)="update()"></app-create-list></div>
         </div>
       </div>
     </div>

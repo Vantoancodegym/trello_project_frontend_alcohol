@@ -18,18 +18,15 @@
       <h5>Attach file</h5>
       <div *ngFor="let item of mediaFiles">
         <a href="{{item.link}}">file</a></div>
-        <div>
-          <span style="background: #2af598">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; &nbsp;
-        </div>
+      <h5>Labels</h5>
+        <span *ngFor="let l of labels"> <span [style.backgroundColor]="l.color">{{l.title}}</span> &nbsp; &nbsp;
+        </span>
       </div>
       <div class="col-1">
         <ul>
         <app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card>
         <input type = "file" (change)="onFileSelected($event)" name="file" id="file" style="padding-bottom: 5px"><br>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>select label</option>
-            <option value="1" style="background: #13f7f4">One</option>
-          </select>
+         <app-create-label [card_id]="card_id" (isAddLabel)="update()"></app-create-label>
       </ul>
       </div>
 

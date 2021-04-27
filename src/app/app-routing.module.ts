@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: 'board/:id',
     component: ShowListComponent
+  },
+  {
+    path: 'form',
+    loadChildren: () => import("./form-login/form-login.module").then(module => module.FormLoginModule)
   }
 
 ];

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {ICard} from '../../interface/i-card';
 import {CardService} from '../../service/cardService/card.service';
@@ -25,12 +25,15 @@ export class CreateCardComponent implements OnInit {
       this.card.list = list;
     })
   }
+  @Output()
+  isCreated = new EventEmitter();
   createCard(){
     this.cardService.createCard(this.card).subscribe(() =>{
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-      // @ts-ignore
-      this.router.navigateByUrl("/board/" + this.card.list?.board?.id) ;
+      // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      // this.router.onSameUrlNavigation = 'reload';
+      // // @ts-ignore
+      // this.router.navigateByUrl("/board/" + this.card.list?.board?.id) ;
+      this.isCreated.emit(true);
     })
   }
 

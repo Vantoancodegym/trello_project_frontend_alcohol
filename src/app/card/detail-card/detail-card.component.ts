@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {ICard} from '../../interface/i-card';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {CardService} from '../../service/cardService/card.service';
@@ -7,6 +7,8 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import {IMediaFile} from '../../interface/media-file';
 import {MediaFileService} from '../../service/mediaFile/media-file.service';
+import {ILabel} from '../../interface/label';
+import {LabelService} from '../../service/labelService/label.service';
 
 @Component({
   selector: 'app-detail-card',
@@ -26,9 +28,11 @@ export class DetailCardComponent implements OnInit {
   downloadURL: Observable<string>;
   // @ts-ignore
   mediaFiles: IMediaFile[];
+  labels: ILabel[] = [];
 
   constructor(private modalService: BsModalService, private cardService: CardService,
-              private storage: AngularFireStorage, private mediaFileService: MediaFileService){
+              private storage: AngularFireStorage, private mediaFileService: MediaFileService,
+              private labelService: LabelService){
   }
 
   getCardById(id: number) {
@@ -41,14 +45,24 @@ export class DetailCardComponent implements OnInit {
       this.mediaFiles = result;
     })
   }
+  getLabels(id: number){
+    this.labelService.getLabelsByCard(id).subscribe(labels =>{
+      this.labels = labels
+    })
+  }
+  @Output()
+  isUpdate = new EventEmitter();
   update(){
     this.getCardById(this.card_id);
-    this.getMediaFiles(this.card_id)
+    this.getMediaFiles(this.card_id);
+    this.getLabels(this.card_id);
+    this.isUpdate.emit(true);
   }
 
   ngOnInit(): void {
     this.getCardById(this.card_id);
     this.getMediaFiles(this.card_id);
+    this.getLabels(this.card_id)
   }
 
   openModalWithClass(template: TemplateRef<any>) {

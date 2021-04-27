@@ -11,6 +11,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
 import { EditCardComponent } from './edit-card/edit-card.component';
 import { DetailCardComponent } from './detail-card/detail-card.component';
+import {LabelsModule} from '../labels/labels.module';
 
 
 @NgModule({
@@ -24,14 +25,15 @@ import { DetailCardComponent } from './detail-card/detail-card.component';
     ShowCardByListIdComponent,
     CreateCardComponent
   ],
-  imports: [
-    CommonModule,
-    CardRoutingModule,
-    DragDropModule,
-    BrowserModule,
-    ModalModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        CardRoutingModule,
+        DragDropModule,
+        BrowserModule,
+        ModalModule,
+        FormsModule,
+        LabelsModule
+    ],
   bootstrap: [ShowListComponent]
 
 })
