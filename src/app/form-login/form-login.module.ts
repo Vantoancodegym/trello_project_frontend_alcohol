@@ -10,13 +10,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { LogOutComponent } from './log-out/log-out.component';
+import { EditPasswordComponent } from './edit-password/edit-password.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LogOutComponent
+    LogOutComponent,
+    EditPasswordComponent
   ],
   exports: [
     LoginComponent,
