@@ -18,6 +18,7 @@ export class LogOutComponent implements OnInit {
 
   logOutUser() {
     this.authenService.logout();
+    this.router.navigateByUrl("/form/login")
   }
 
 }
