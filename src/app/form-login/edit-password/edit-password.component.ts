@@ -33,7 +33,7 @@ export class EditPasswordComponent implements OnInit {
   }
   editUser(){
     this.userService.editAppUser(this.appUser,this.id).subscribe(()=>{
-      console.log("OK");
+      this.router.navigateByUrl("/board/1")
     })
   }
 }

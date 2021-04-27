@@ -13,7 +13,7 @@
       <p class="board-name">{{board.name}}</p>
       <div style="position: absolute; right: 5%; top: 0">
         <h5>Welcome {{authenService.currentUserValue.username}}</h5>
-        <p><app-log-out></app-log-out></p>
+        <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit password</a></p>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
            (cdkDropListDropped)="drop($event)">
 
         <div class="board-columns" cdkDropListGroup>
-          <div class="board-column" *ngFor="let item of _lists" cdkDrag >
+          <div class="board-column"  *ngFor="let item of _lists" cdkDrag >
 
             <div class="column-title">
               {{ item.title }}

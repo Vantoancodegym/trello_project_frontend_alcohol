@@ -22,7 +22,8 @@ import { EditPasswordComponent } from './edit-password/edit-password.component';
   ],
   exports: [
     LoginComponent,
-    LogOutComponent
+    LogOutComponent,
+    EditPasswordComponent
   ],
   imports: [
     CommonModule,

@@ -20,7 +20,7 @@ export class ShowListComponent implements OnInit {
   board_id: number =1;
   list_id: number =1;
   // @ts-ignore
-  board: IBoard;
+  board: IBoard ={};
   // @ts-ignore
   @Input() placeholder: string;
   // @ts-ignore
