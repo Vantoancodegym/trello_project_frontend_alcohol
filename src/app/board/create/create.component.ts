@@ -31,7 +31,7 @@ export class CreateComponent implements OnInit {
     // @ts-ignore
     this.board.appUser?.id = this.authenService.currentUserValue.id;
     this.boardService.createBoard(this.board).subscribe(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     });
   }
 
