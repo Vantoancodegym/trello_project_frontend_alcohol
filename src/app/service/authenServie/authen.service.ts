@@ -30,7 +30,7 @@ export class AuthenService {
   }
 
   login(username: string, password: string) {
-    let user: IUser ={
+    let user: IUser = {
       userName: username,
       passWord: password
     }

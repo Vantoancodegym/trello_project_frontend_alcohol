@@ -15,7 +15,8 @@ export class EditTitleListComponent implements OnInit {
   list: IList = {
     title : "",
     board: {
-      id: 0
+      id: 0,
+      appUser: {}
     }
   }
   // @ts-ignore

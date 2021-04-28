@@ -1,0 +1,15 @@
+<p>list-board-app-user works!</p>
+<div class="container">
+  <a [routerLink]="'/boards/create'" >CREATE BOARD</a>
+  <table class="table table-striped">
+    <tr>
+      <td>NAME</td>
+      <td>TAG_USER</td>
+    </tr>
+    <tr *ngFor=" let b of boards">
+      <td >{{b.name}}</td>
+      <td ><a [routerLink]="'/boardAppUser/tag/:id'" >TAG_USER</a></td>
+    </tr>
+
+  </table>
+</div>
