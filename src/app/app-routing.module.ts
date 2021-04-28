@@ -5,6 +5,11 @@ import {ShowListComponent} from "./list/show-list/show-list.component";
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'form/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'board/:id',
     component: ShowListComponent
   },
