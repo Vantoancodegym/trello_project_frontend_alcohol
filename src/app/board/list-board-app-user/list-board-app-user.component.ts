@@ -12,28 +12,6 @@ import {AuthenService} from "../../service/authenServie/authen.service";
 })
 export class ListBoardAppUserComponent implements OnInit {
   boards: IBoard[] = [
-    {
-      id: 0,
-      name: '23',
-      appUser: {
-        id: 1,
-        userName: 'hiếu',
-        password: '1224',
-        email: 'faf',
-        avatar: 'dd'
-      }
-    },
-    {
-      id: 1,
-      name: 'kf',
-      appUser: {
-        id: 1,
-        userName: 'hiếu',
-        password: '1224',
-        email: 'faf',
-        avatar: 'dd'
-      }
-    }
   ] ;
   id = 0;
 

@@ -10,24 +10,26 @@ import {AuthenService} from "../../service/authenServie/authen.service";
   styleUrls: ['./list-board-tag-user.component.scss']
 })
 export class ListBoardTagUserComponent implements OnInit {
-  boards: IBoard[] = [];
+  boards: IBoard[] = [
+  ];
   id = 0;
 
   constructor(private boardService: BoardService,
               private router: Router,
               private authenService: AuthenService) {
-    this.findAllBoard_tagUser();
   }
 
   findAllBoard_tagUser() {
     let id = this.authenService.currentUserValue.id;
-    // @ts-ignore
-    this.boardService.getBoardTagUser(id).subscribe(boards => {
-      this.boards = boards;
-    });
+    if (id != null) {
+      this.boardService.getBoardTagUser(id).subscribe(boards => {
+        this.boards = boards;
+      });
+    }
   }
 
   ngOnInit(): void {
+    this.findAllBoard_tagUser();
   }
 
 }

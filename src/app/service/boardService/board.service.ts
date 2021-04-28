@@ -12,27 +12,6 @@ const API_BACKEND = environment.api_url;
   providedIn: 'root'
 })
 export class BoardService {
-  // @ts-ignore
-  user: IUser = [{
-    id: 1,
-    userName: 'duyet',
-    email: 'duyet@gmail.com',
-    password: '123456',
-    avatar: ''
-  },
-    {
-      id: 2,
-      userName: 'thanh',
-      email: 'thanh@gmail.com',
-      password: '123456',
-      avatar: ''
-    }];
-  board: IBoard ={
-    id: 1,
-    appUser: {
-    }
-  };
-
 
   constructor(private httpClient: HttpClient
   ) {
@@ -45,7 +24,6 @@ export class BoardService {
   findBoarById(id: number): Observable<any> {
     return this.httpClient.get<IBoard>(API_BACKEND + "board/findBoardById/" + id);
   }
-
 
   getAllBoardByAppUser(id:number): Observable<IBoard[]> {
     // @ts-ignore

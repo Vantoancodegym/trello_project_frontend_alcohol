@@ -16,31 +16,34 @@ export class TagUserBoardComponent implements OnInit {
   tagAppUser: ITagUserBoard = {
     id: 0,
     board: {},
-    appUser:{}
+    appUser: {}
   };
   @Input()
-  board_id: number =0;
+  board_id: any = 0;
   listUser: IUser[] = [];
 
   constructor(private boardService: BoardService,
               private router: Router) {
+    this.getListUser()
   }
 
   // tslint:disable-next-line:typedef
-  getListUser(){
-    this.boardService.showAllAppUser()
+  getListUser() {
+    this.boardService.showAllAppUser().subscribe(listUser =>{
+      this.listUser = listUser;
+      console.log(this.listUser)
+    })
   }
-  create() {
+
+  appUser() {
     this.tagAppUser.board.id = this.board_id;
     this.boardService.createTagUserBoard(this.tagAppUser).subscribe(() => {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/boards/listBoardTagUser']);
     });
   }
 
   ngOnInit(): void {
-    this.getListUser();
-  }
-
+    }
 
 
 }

@@ -13,15 +13,15 @@ const routes: Routes = [
     component: ShowListComponent
   },
   {
-    path: 'board/duyet/create',
+    path: 'boards/create',
     component: CreateComponent
   },
   {
-    path: 'board/listBoardTagUser/:id',
+    path: 'boards/listBoardTagUser',
     component: ListBoardTagUserComponent
   },
   {
-    path: 'board/listAppBoard/:id',
+    path: 'boards/listAppBoard',
     component: ListBoardAppUserComponent
 
   },
@@ -30,7 +30,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'boardAppUser/create',
+    path: 'boardAppUser/tag',
     component: TagUserBoardComponent
   }
 ];
