@@ -17,7 +17,7 @@ export class BoardService {
   ) {
   }
 
-  showALl():Observable<IBoard[]> {
+  showALl(): Observable<IBoard[]> {
     return this.httpClient.get<IBoard[]>(API_BACKEND + 'board');
   }
 
@@ -25,16 +25,16 @@ export class BoardService {
     return this.httpClient.get<IBoard>(API_BACKEND + "board/findBoardById/" + id);
   }
 
-  getAllBoardByAppUser(id:number): Observable<IBoard[]> {
+  getAllBoardByAppUser(id: number): Observable<IBoard[]> {
     // @ts-ignore
     return this.httpClient.get<Board[]>(API_BACKEND + 'board/listAppBoard/' + id);
   }
 
-  createBoard(board:IBoard): Observable<IBoard> {
+  createBoard(board: IBoard): Observable<IBoard> {
     return this.httpClient.post<IBoard>(API_BACKEND + 'board/create', board);
   }
 
-  getBoardTagUser(id:number): Observable<IBoard[]> {
+  getBoardTagUser(id: number): Observable<IBoard[]> {
     return this.httpClient.get<IBoard[]>(API_BACKEND + 'board/listBoardTagUser/' + id);
   }
 
