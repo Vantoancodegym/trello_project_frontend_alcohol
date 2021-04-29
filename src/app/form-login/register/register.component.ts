@@ -5,6 +5,7 @@ import {ILogin} from '../../interface/ilogin';
 import {Observable} from 'rxjs';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -25,8 +26,13 @@ export class RegisterComponent implements OnInit {
     passWord: '',
     role: [],
   };
-  constructor(private loginService: LoginServiceService, private router: Router, private storage: AngularFireStorage) {
+  constructor(private loginService: LoginServiceService, private router: Router, private storage: AngularFireStorage, private fb: FormBuilder) {
   }
+  registerForm = this.fb.group({
+    "userName": ['',[Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêếìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý ]+$')]],
+    "passWord": ['', [Validators.minLength(6), Validators.maxLength(30)]],
+    "email": ['', Validators.email]
+  })
   onFileSelected(event: any) {
     let n = Date.now();
     const file = event.target.files[0];

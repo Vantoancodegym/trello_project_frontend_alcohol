@@ -5,5 +5,4 @@ export interface IUser {
   password?: string;
   avatar?: string;
   passWord?: string
-
 }
