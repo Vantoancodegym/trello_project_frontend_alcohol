@@ -11,6 +11,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
 import { EditCardComponent } from './edit-card/edit-card.component';
 import { DetailCardComponent } from './detail-card/detail-card.component';
+import { SearchCardComponent } from './search-card/search-card.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DetailCardComponent } from './detail-card/detail-card.component';
     ShowCardByListIdComponent,
     CreateCardComponent,
     EditCardComponent,
-    DetailCardComponent
+    DetailCardComponent,
+    SearchCardComponent
   ],
   exports: [
     ShowCardByListIdComponent,
