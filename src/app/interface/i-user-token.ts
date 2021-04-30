@@ -4,7 +4,7 @@ export interface IUserToken {
   roles?: IRole[]
   id?: number;
   username?: string;
-  password?: string;
+  passWord?: string;
   email?: string;
   accessToken?: string;
   avatar?: string

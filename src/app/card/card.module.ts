@@ -17,6 +17,10 @@ import {MatOptionModule} from "@angular/material/core";
 import {Ng2OrderModule} from "ng2-order-pipe";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {NgxPaginationModule} from "ngx-pagination";
+import { EditCardComponent } from './edit-card/edit-card.component';
+import { DetailCardComponent } from './detail-card/detail-card.component';
+import {LabelsModule} from '../labels/labels.module';
+
 @NgModule({
   declarations: [
     ShowCardByListIdComponent,

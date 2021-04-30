@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+    <app-log-out></app-log-out>
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <th>STT</th>
+      <td>NAME</td>
+      <td>TAG USER</td>
+    </tr>
+    <tr *ngFor="let b of boards, index as i">
+      <td>{{i+1}}</td>
+      <td >{{b.name}}</td>
+      <td>
+        <app-tag-user-board [board_id]="b.id"></app-tag-user-board>
+      </td>
+    </tr>
+    <tr>
+      <td><a [routerLink]="'/boards/listAppBoard'" >DANH SÁCH BOARD ĐÃ TẠO</a></td>
+    </tr>
+    <tr>
+      <td><a [routerLink]="'/boards/listBoardTagUser'" >DANH SÁCH BOARD ĐƯỢC THÊM VÀO</a></td>
+    </tr>
+  </table>
+</div>
