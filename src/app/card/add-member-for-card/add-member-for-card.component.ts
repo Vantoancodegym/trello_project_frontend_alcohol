@@ -1,11 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
-import {ICard} from '../../interface/i-card';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {CardService} from '../../service/cardService/card.service';
-import {Router} from '@angular/router';
-import {ILabel} from '../../interface/label';
-import {ICardLabel} from '../../interface/icard-label';
-import {LabelService} from '../../service/labelService/label.service';
+import {UserService} from '../../service/user/user.service';
+import {IUser} from '../../interface/i-user';
+import {ICardUser} from '../../interface/icard-User';
 
 @Component({
   selector: 'app-add-member-for-card',
@@ -15,35 +11,35 @@ import {LabelService} from '../../service/labelService/label.service';
 export class AddMemberForCardComponent implements OnInit {
   @Input()
   card_id: number =0;
-  label_id: any ="selected";
-  labels: ILabel[] =[];
-  card_label : ICardLabel ={
+  appUser_id: any ="selected";
+  users: IUser[] =[];
+  card_user : ICardUser ={
     card:{},
-    labels:{}
+    appUser:{}
   };
 
-  constructor(private labelService: LabelService) { }
+  constructor(private userService : UserService) { }
 
   ngOnInit(): void {
-    this.getLabelSelected(this.card_id);
+    this.getAppUserSelected(this.card_id);
   }
-  getLabelSelected(id: number){
-    this.labelService.getListSelected(id).subscribe(labels =>{
-      this.labels = labels;
+  getAppUserSelected(id: number){
+    this.userService.getListSelected(id).subscribe(users =>{
+      this.users = users;
     })
   }
   @Output()
-  isAddLabel = new EventEmitter();
-  createLabel(){
+  isAddUser = new EventEmitter();
+  createAppUser(){
     // @ts-ignore
-    this.card_label.card?.id = this.card_id;
+    this.card_user.card?.id = this.card_id;
     // @ts-ignore
-    this.card_label.labels?.id= +this.label_id;
-    console.log(this.card_label)
-    this.labelService.addLabelToCard(this.card_label).subscribe(() =>{
-      this.isAddLabel.emit(true);
-      this.getLabelSelected(this.card_id);
-      this.label_id ="selected";
+    this.card_user.appUser?.id= +this.appUser_id;
+    console.log(this.card_user)
+    this.userService.addAppUserToCard(this.card_user).subscribe(() =>{
+      this.isAddUser.emit(true);
+      this.getAppUserSelected(this.card_id);
+      this.appUser_id ="selected";
     })
 
   }

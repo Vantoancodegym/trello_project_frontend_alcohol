@@ -9,6 +9,8 @@ import {IMediaFile} from '../../interface/media-file';
 import {MediaFileService} from '../../service/mediaFile/media-file.service';
 import {ILabel} from '../../interface/label';
 import {LabelService} from '../../service/labelService/label.service';
+import {UserService} from '../../service/user/user.service';
+import {IUser} from '../../interface/i-user';
 
 @Component({
   selector: 'app-detail-card',
@@ -29,10 +31,12 @@ export class DetailCardComponent implements OnInit {
   // @ts-ignore
   mediaFiles: IMediaFile[];
   labels: ILabel[] = [];
+  users: IUser[] = [];
 
   constructor(private modalService: BsModalService, private cardService: CardService,
               private storage: AngularFireStorage, private mediaFileService: MediaFileService,
-              private labelService: LabelService){
+              private labelService: LabelService,
+              private userService: UserService){
   }
 
   getCardById(id: number) {
@@ -50,12 +54,19 @@ export class DetailCardComponent implements OnInit {
       this.labels = labels
     })
   }
+  getUsers(id: number){
+    this.userService.getAppUserByCard(id).subscribe(users =>{
+      this.users = users
+    })
+  }
+
   @Output()
   isUpdate = new EventEmitter();
   update(){
     this.getCardById(this.card_id);
     this.getMediaFiles(this.card_id);
     this.getLabels(this.card_id);
+    this.getUsers(this.card_id);
     this.isUpdate.emit(true);
   }
 
@@ -63,6 +74,7 @@ export class DetailCardComponent implements OnInit {
     this.getCardById(this.card_id);
     this.getMediaFiles(this.card_id);
     this.getLabels(this.card_id)
+    this.getUsers(this.card_id);
   }
 
   openModalWithClass(template: TemplateRef<any>) {
