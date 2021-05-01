@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BoardModule} from "./board/board.module";
 import {ShowListComponent} from "./list/show-list/show-list.component";
+import {SearchCardComponent} from './card/search-card/search-card.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'form',
     loadChildren: () => import("./form-login/form-login.module").then(module => module.FormLoginModule)
+  },
+  {
+    path:'search/card',
+    component:SearchCardComponent
   }
 
 ];

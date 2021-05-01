@@ -9,8 +9,6 @@ import {CreateCardComponent} from './create-card/create-card.component';
 import {ShowListComponent} from '../list/show-list/show-list.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule} from '@angular/forms';
-import {EditCardComponent} from './edit-card/edit-card.component';
-import {DetailCardComponent} from './detail-card/detail-card.component';
 import {SearchCardComponent} from './search-card/search-card.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatOptionModule} from "@angular/material/core";
@@ -20,6 +18,8 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { EditCardComponent } from './edit-card/edit-card.component';
 import { DetailCardComponent } from './detail-card/detail-card.component';
 import {LabelsModule} from '../labels/labels.module';
+import { AddMemberForCardComponent } from './add-member-for-card/add-member-for-card.component';
+import { ShowTagUserCardComponent } from './show-tag-user-card/show-tag-user-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,9 @@ import {LabelsModule} from '../labels/labels.module';
     CreateCardComponent,
     EditCardComponent,
     DetailCardComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    AddMemberForCardComponent,
+    ShowTagUserCardComponent
   ],
   exports: [
     ShowCardByListIdComponent,
@@ -44,7 +46,9 @@ import {LabelsModule} from '../labels/labels.module';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     MatCheckboxModule,
-    MatOptionModule,],
+    MatOptionModule,
+    LabelsModule,
+  ],
   bootstrap: [ShowListComponent]
 
 })

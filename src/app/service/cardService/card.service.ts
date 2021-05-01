@@ -26,4 +26,7 @@ export class CardService {
   createCard(card: ICard): Observable<any>{
     return this.httpClient.post(URL_BACKEND + "create",card);
   }
+  showAllCard():Observable<any>{
+    return this.httpClient.get(URL_BACKEND);
+  }
 }

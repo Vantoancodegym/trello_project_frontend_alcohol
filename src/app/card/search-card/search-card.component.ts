@@ -16,6 +16,7 @@ export class SearchCardComponent implements OnInit {
   ngOnInit(): void {
     this.cardService.showAllCard().subscribe(result =>{
       this.list = result;
+      console.log(this.list);
     })
   }
   searchCardByContentOrTitle(){
