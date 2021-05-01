@@ -52,11 +52,13 @@ export class DetailCardComponent implements OnInit {
   getLabels(id: number){
     this.labelService.getLabelsByCard(id).subscribe(labels =>{
       this.labels = labels
+      // console.log(this.labels);
     })
   }
   getUsers(id: number){
     this.userService.getAppUserByCard(id).subscribe(users =>{
       this.users = users
+      // console.log(this.users);
     })
   }
 

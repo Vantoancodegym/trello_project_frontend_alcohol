@@ -13,8 +13,7 @@ const API_BACKEND = environment.api_url;
 })
 export class BoardService {
 
-  constructor(private httpClient: HttpClient
-  ) {
+  constructor(private httpClient: HttpClient) {
   }
 
   showALl(): Observable<IBoard[]> {
@@ -22,7 +21,7 @@ export class BoardService {
   }
 
   findBoarById(id: number): Observable<any> {
-    return this.httpClient.get<IBoard>(API_BACKEND + "board/findBoardById/" + id);
+    return this.httpClient.get<IBoard>(API_BACKEND + 'board/findBoardById/' + id);
   }
 
   getAllBoardByAppUser(id: number): Observable<IBoard[]> {
@@ -45,6 +44,4 @@ export class BoardService {
   showAllAppUser(): Observable<IUser[]> {
     return this.httpClient.get<IUser[]>(API_BACKEND + 'list');
   }
-
-
 }

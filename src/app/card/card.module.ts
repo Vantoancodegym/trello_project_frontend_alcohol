@@ -19,6 +19,7 @@ import { EditCardComponent } from './edit-card/edit-card.component';
 import { DetailCardComponent } from './detail-card/detail-card.component';
 import {LabelsModule} from '../labels/labels.module';
 import { AddMemberForCardComponent } from './add-member-for-card/add-member-for-card.component';
+import { ShowTagUserCardComponent } from './show-tag-user-card/show-tag-user-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddMemberForCardComponent } from './add-member-for-card/add-member-for-
     EditCardComponent,
     DetailCardComponent,
     SearchCardComponent,
-    AddMemberForCardComponent
+    AddMemberForCardComponent,
+    ShowTagUserCardComponent
   ],
   exports: [
     ShowCardByListIdComponent,
