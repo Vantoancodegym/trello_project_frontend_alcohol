@@ -25,6 +25,7 @@ import {environment} from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {LabelsModule} from './labels/labels.module';
+import { FilterCardLabelComponent } from './filter-card-label/filter-card-label.component';
 
 
 
@@ -32,7 +33,8 @@ import {LabelsModule} from './labels/labels.module';
 // @ts-ignore
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterCardLabelComponent
   ],
   imports: [
     BrowserModule,
