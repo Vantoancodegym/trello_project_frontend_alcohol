@@ -20,4 +20,7 @@ export class LabelService {
   addLabelToCard(card_label: ICardLabel):Observable<any>{
     return this.httpClient.post(URL_BACKEND +"labels/addLabelToCard", card_label);
   }
+  getAllLabel(): Observable<any>{
+    return this.httpClient.get(URL_BACKEND+"labels");
+  }
 }
