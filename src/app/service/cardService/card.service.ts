@@ -29,4 +29,7 @@ export class CardService {
   showAllCard():Observable<any>{
     return this.httpClient.get(URL_BACKEND);
   }
+  getCardByLabel(id:number):Observable<any>{
+    return this.httpClient.get(URL_BACKEND+"label/"+id);
+  }
 }
