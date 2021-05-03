@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {LabelService} from '../service/labelService/label.service';
+import {CardService} from '../service/cardService/card.service';
+import {ILabel} from '../interface/label';
 
 @Component({
   selector: 'app-filter-card-label',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-card-label.component.scss']
 })
 export class FilterCardLabelComponent implements OnInit {
-
-  constructor() { }
+  listLabel: ILabel[] = [];
+  constructor(private labelService:LabelService, private  cardService:CardService) { }
 
   ngOnInit(): void {
+    this.getAllLabel();
+  }
+  getAllLabel(){
+    this.labelService.getAllLabel().subscribe(data =>{
+      this.listLabel = data;
+    })
   }
 
 }
