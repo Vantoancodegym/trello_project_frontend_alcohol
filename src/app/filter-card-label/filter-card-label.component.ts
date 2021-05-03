@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LabelService} from '../service/labelService/label.service';
 import {CardService} from '../service/cardService/card.service';
 import {ILabel} from '../interface/label';
+import {ICard} from '../interface/i-card';
 
 @Component({
   selector: 'app-filter-card-label',
@@ -10,7 +11,8 @@ import {ILabel} from '../interface/label';
 })
 export class FilterCardLabelComponent implements OnInit {
   listLabel: ILabel[] = [];
-  labelSelected: number = 0;
+  listCard: ICard[] = [];
+  label_id: number = 0;
   constructor(private labelService:LabelService, private  cardService:CardService) { }
 
   ngOnInit(): void {
@@ -21,5 +23,9 @@ export class FilterCardLabelComponent implements OnInit {
       this.listLabel = data;
     })
   }
-
+  getAllCardByLabel(){
+    this.cardService.getCardByLabel(this.label_id).subscribe( data =>{
+      this.listCard = data;
+    })
+  }
 }
