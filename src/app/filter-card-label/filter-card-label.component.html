@@ -1,1 +1,6 @@
-<p>filter-card-label works!</p>
+<div style="margin: auto; width: 50%; border: 2px solid green; padding: 10px;">
+  <select [(ngModel)]="labelSelected">
+    <option *ngFor="let label of listLabel" [value]="label.id">{{label.title}}</option>
+  </select>
+</div>
+<h3>The selected Label id is:: {{labelSelected}}</h3>

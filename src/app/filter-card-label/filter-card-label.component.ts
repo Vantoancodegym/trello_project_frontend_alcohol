@@ -10,6 +10,7 @@ import {ILabel} from '../interface/label';
 })
 export class FilterCardLabelComponent implements OnInit {
   listLabel: ILabel[] = [];
+  labelSelected: number = 0;
   constructor(private labelService:LabelService, private  cardService:CardService) { }
 
   ngOnInit(): void {
