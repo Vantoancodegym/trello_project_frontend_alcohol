@@ -1,15 +1,28 @@
-<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew" value="filterByLabel">
-</button>
-<ng-template #template>
-<br>
-<div style="margin: auto; width: 50%; border: 2px solid green; padding: 10px;">
-  <select class="form-control" [(ngModel)]="label_id" (ngModelChange)="getAllCardByLabel($event)" >
-    <option *ngFor="let label of listLabel" [value]="label.id" >{{label.title}}</option>
-  </select>
-</div>
-<h3>The selected Label id is:: {{label_id}}</h3>
-<h2>Danh sách Card cần tìm là</h2>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="'/home'">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Board: {{board.name}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="'/board/'+board_id">Back <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+    <div style="margin: auto; width: 30%; border: 1px solid green; padding: 10px;">
+      <select class="form-control" [(ngModel)]="label_id"(ngModelChange)="getAllCardByLabel($event)">
+        <option *ngFor="let label of listLabel" [value]="label.id" >{{label.title}}</option>
+      </select>
+    </div>
+  </nav>
+  <div>
 <table class="table table-bordered" style="border: black" *ngIf="label_id">
+  <h3>The selected Label id is:: {{label_id}}</h3>
+  <h2>Danh sách Card cần tìm là</h2>
   <thead>
   <tr>
     <th scope="col">STT</th>
@@ -26,4 +39,5 @@
     <td>{{card.position}}</td>
   </tr>
 </table>
-</ng-template>
+  </div>
+</div>

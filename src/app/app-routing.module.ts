@@ -24,7 +24,7 @@ const routes: Routes = [
     component:SearchCardComponent
   },
   {
-    path:'filter/card/label',
+    path:'board/:id/filter/card/label',
     component: FilterCardLabelComponent
   }
 ];

@@ -11,10 +11,10 @@
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="'/form/edit/{{authenService.currentUserValue.id}}'">Welcome {{authenService.currentUserValue.username}} <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <button class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/label'">Filter Card By Label</button>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
@@ -24,13 +24,10 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-<!--        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         <app-search-card></app-search-card>
       </form>
     </div>
   </nav>
-
   <main role="main" class="container">
     <div class="navbar has-background-dark">
       <div class="navbar-brand">
@@ -40,9 +37,7 @@
       </div>
     </div>
     <div class="board">
-      <app-filter-card-label [board_id] ="board_id"></app-filter-card-label>
       <div class="board-wrapper" >
-
         <div class="board-columns"
              cdkDropList [cdkDropListData]="_lists"
              (cdkDropListDropped)="drop($event)">

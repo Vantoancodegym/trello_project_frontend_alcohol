@@ -4,6 +4,9 @@ import {CardService} from '../../service/cardService/card.service';
 import {ILabel} from '../../interface/label';
 import {ICard} from '../../interface/i-card';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {ActivatedRoute, Router} from '@angular/router';
+import {IBoard} from '../../interface/i-board';
+import {BoardService} from '../../service/boardService/board.service';
 
 @Component({
   selector: 'app-filter-card-label',
@@ -16,11 +19,19 @@ export class FilterCardLabelComponent implements OnInit {
   label_id: number = 0;
   // @ts-ignore
   modalRef: BsModalRef;
-  @Input()
   board_id: number = 0;
-  constructor(private modalService: BsModalService,private labelService:LabelService, private  cardService:CardService) { }
+  board: IBoard = {};
+  constructor(private modalService: BsModalService,private labelService:LabelService,
+              private  cardService:CardService, private activatedRoute: ActivatedRoute,
+              private boardService:BoardService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(paraMap =>{
+      this.board_id = Number(paraMap.get("id"));
+      this.boardService.findBoarById(this.board_id).subscribe(data =>{
+        this.board = data;
+      })
+    })
     this.getAllLabel();
   }
   getAllLabel(){

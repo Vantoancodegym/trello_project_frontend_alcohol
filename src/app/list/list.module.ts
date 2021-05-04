@@ -12,6 +12,7 @@ import { EditTitleListComponent } from './edit-title-list/edit-title-list.compon
 import { DetailListComponent } from './detail-list/detail-list.component';
 import {FormLoginModule} from '../form-login/form-login.module';
 import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.component';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.co
     DetailListComponent,
     FilterCardLabelComponent
   ],
-    imports: [
-        CommonModule,
-        ListRoutingModule,
-        CardModule,
-        DragDropModule,
-        BrowserModule,
-        FormsModule,
-        FormLoginModule,
-    ]})
+  imports: [
+    CommonModule,
+    ListRoutingModule,
+    CardModule,
+    DragDropModule,
+    BrowserModule,
+    FormsModule,
+    FormLoginModule,
+    NgbDropdownModule,
+  ]})
 export class ListModule { }
