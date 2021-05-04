@@ -3,6 +3,7 @@ import {LoginServiceService} from '../../service/loginService/login-service.serv
 import {ActivatedRoute, Router} from '@angular/router';
 import {ILogin} from '../../interface/ilogin';
 import {UserService} from '../../service/user/user.service';
+import {AuthenService} from '../../service/authenServie/authen.service';
 
 @Component({
   selector: 'app-edit-password',
