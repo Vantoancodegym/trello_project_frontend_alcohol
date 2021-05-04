@@ -12,8 +12,11 @@ import {FormsModule} from '@angular/forms';
 import {SearchCardComponent} from './search-card/search-card.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatOptionModule} from "@angular/material/core";
+// @ts-ignore
 import {Ng2OrderModule} from "ng2-order-pipe";
+// @ts-ignore
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+// @ts-ignore
 import {NgxPaginationModule} from "ngx-pagination";
 import { EditCardComponent } from './edit-card/edit-card.component';
 import { DetailCardComponent } from './detail-card/detail-card.component';
