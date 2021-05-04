@@ -1,41 +1,63 @@
 <div class="root">
-  <div class="navbar has-background-dark">
-    <div class="navbar-brand">
-      <div class="navbar-item">
-        <h1 class="app-name has-gradient-text">Trello Project Of Alcohol Team</h1>
-      </div>
-    </div>
-  </div>
-
   <div class="board">
 
     <div class="board-bar" style="position: relative">
       <p class="board-name">{{board.name}}</p>
-      <div style="position: absolute; right: 5%; top: 0">
-        <h5>Welcome {{authenService.currentUserValue.username}}</h5>
-        <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit password</a></p>
-      </div>
-    </div>
-
-    <div class="board-wrapper" >
-
-      <div class="board-columns"
-           cdkDropList [cdkDropListData]="_lists"
-           (cdkDropListDropped)="drop($event)">
-
-        <div class="board-columns" cdkDropListGroup>
-          <div class="board-column"  *ngFor="let item of _lists" cdkDrag >
-
-            <div class="column-title">
-              {{ item.title }}
-              <app-edit-title-list [list_id]="item.id" (isUpdate)="update()"></app-edit-title-list>
-            </div>
-            <app-show-card-by-list-id [list_id]="item.id" (isChanged)="update()"></app-show-card-by-list-id>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="'/home'">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Board: {{board.name}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="'/form/edit/{{authenService.currentUserValue.id}}'">Welcome {{authenService.currentUserValue.username}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter Card</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" ><app-filter-card-label [board_id]="board_id"></app-filter-card-label></a>
+            <a class="dropdown-item" ><app-filter-card-user [board_id]="board_id"></app-filter-card-user></a>
+<!--            <a class="dropdown-item" href="#">Something else here</a>-->
           </div>
-          <div class="board-column"  >
-            <app-create-list [board_id]="board_id" (isCreate)="update()"></app-create-list></div>
+        </li>
+        <li class="nav-item active">
+          <app-log-out></app-log-out>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <app-search-card></app-search-card>
+      </form>
+    </div>
+  </nav>
+  <main role="main" class="container">
+    <div class="navbar has-background-dark">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <h1 class="app-name has-gradient-text">Trello Project Of Alcohol Team</h1>
         </div>
       </div>
     </div>
-  </div>
+    <div class="board">
+      <div class="board-wrapper" >
+        <div class="board-columns"
+             cdkDropList [cdkDropListData]="_lists"
+             (cdkDropListDropped)="drop($event)">
+          <div class="board-columns" cdkDropListGroup>
+            <div class="board-column"  *ngFor="let item of _lists" cdkDrag >
+              <div class="column-title">
+                {{ item.title }}
+                <app-edit-title-list [list_id]="item.id" (isUpdate)="update()"></app-edit-title-list>
+              </div>
+              <app-show-card-by-list-id [list_id]="item.id" (isChanged)="update()"></app-show-card-by-list-id>
+            </div>
+            <div class="board-column"  >
+              <app-create-list [board_id]="board_id" (isCreate)="update()"></app-create-list></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
