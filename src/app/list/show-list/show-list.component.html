@@ -14,8 +14,8 @@
         <li ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <button class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/label'">Filter Card By Label</button>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/label'">Filter Card By Label</a>
+            <a class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/user'">Filter Card By User</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
