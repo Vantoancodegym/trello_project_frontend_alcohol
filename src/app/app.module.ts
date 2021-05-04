@@ -25,42 +25,43 @@ import {environment} from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {LabelsModule} from './labels/labels.module';
-import { FilterCardLabelComponent } from './filter-card-label/filter-card-label.component';
+import { FilterCardLabelComponent } from './list/filter-card-label/filter-card-label.component';
 
 
 
 // @ts-ignore
 // @ts-ignore
 @NgModule({
-  declarations: [
-    AppComponent,
-    FilterCardLabelComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    DragDropModule,
-    CardModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ModalModule.forRoot(),
-    ListModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        DragDropModule,
+        CardModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ModalModule.forRoot(),
+        ListModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
 
-    BrowserAnimationsModule,
+        BrowserAnimationsModule,
 
 
-    LabelsModule
+        LabelsModule
 
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
-  ],
-  bootstrap: [AppComponent]
+    ],
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    ],
+    exports: [
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

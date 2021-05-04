@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {CardService} from "../../service/cardService/card.service";
 import {ICard} from "../../interface/i-card";
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-search-card',
@@ -11,7 +12,9 @@ export class SearchCardComponent implements OnInit {
   input: string = "";
   input1: string = "";
   list: ICard[] = [];
-  constructor(private cardService:CardService) { }
+  // @ts-ignore
+  modalRef: BsModalRef;
+  constructor(private modalService: BsModalService,private cardService:CardService) { }
 
   ngOnInit(): void {
     this.cardService.showAllCard().subscribe(result =>{
@@ -28,5 +31,11 @@ export class SearchCardComponent implements OnInit {
           || res.content?.toLocaleLowerCase().match(this.input.toLocaleLowerCase());
       })
     }
+  }
+  openModalWithClass(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, {class: 'center modal-lg'})
+    );
   }
 }

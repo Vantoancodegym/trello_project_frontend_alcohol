@@ -1,0 +1,29 @@
+<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew" value="filterByLabel">
+</button>
+<ng-template #template>
+<br>
+<div style="margin: auto; width: 50%; border: 2px solid green; padding: 10px;">
+  <select class="form-control" [(ngModel)]="label_id" (ngModelChange)="getAllCardByLabel($event)" >
+    <option *ngFor="let label of listLabel" [value]="label.id" >{{label.title}}</option>
+  </select>
+</div>
+<h3>The selected Label id is:: {{label_id}}</h3>
+<h2>Danh sách Card cần tìm là</h2>
+<table class="table table-bordered" style="border: black" *ngIf="label_id">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">TITLE</th>
+    <th scope="col">CONTENT</th>
+    <th scope="col">POSITION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let card of listCard, index as i">
+    <th scope="row">{{i+1}}</th>
+    <td>{{card.title}}</td>
+    <td>{{card.content}}</td>
+    <td>{{card.position}}</td>
+  </tr>
+</table>
+</ng-template>

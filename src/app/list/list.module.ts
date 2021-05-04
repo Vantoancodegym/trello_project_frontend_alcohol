@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { EditTitleListComponent } from './edit-title-list/edit-title-list.component';
 import { DetailListComponent } from './detail-list/detail-list.component';
 import {FormLoginModule} from '../form-login/form-login.module';
+import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {FormLoginModule} from '../form-login/form-login.module';
     CreateListComponent,
     EditTitleListComponent,
     DetailListComponent,
+    FilterCardLabelComponent
   ],
     imports: [
         CommonModule,

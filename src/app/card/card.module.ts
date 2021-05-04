@@ -31,10 +31,11 @@ import { ShowTagUserCardComponent } from './show-tag-user-card/show-tag-user-car
     AddMemberForCardComponent,
     ShowTagUserCardComponent
   ],
-  exports: [
-    ShowCardByListIdComponent,
-    CreateCardComponent
-  ],
+    exports: [
+        ShowCardByListIdComponent,
+        CreateCardComponent,
+        SearchCardComponent
+    ],
   imports: [
     CommonModule,
     CardRoutingModule,

@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BoardModule} from "./board/board.module";
 import {ShowListComponent} from "./list/show-list/show-list.component";
 import {SearchCardComponent} from './card/search-card/search-card.component';
-import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.component';
+import {FilterCardLabelComponent} from './list/filter-card-label/filter-card-label.component';
 
 const routes: Routes = [
   {
