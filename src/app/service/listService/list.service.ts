@@ -26,9 +26,13 @@ export class ListService {
     return this.httpClient.put(URL_BACKEND + "editPositionList", lists);
   }
   getBoardById(id: number): Observable<IBoard>{
+<<<<<<< HEAD
     return this.httpClient.get<IBoard>(URL_BACKEND+`board/findBoardById` + id);
 
     return this.httpClient.get(URL_BACKEND+"board/findBoardById/" + id);
+=======
+    return this.httpClient.get<IBoard>(URL_BACKEND+`board/findBoardById/` + id);
+>>>>>>> bb5b5aed835fec6f3c210259b90c41d8a578f8b5
   }
 
   findListById(id:number): Observable<IList>{

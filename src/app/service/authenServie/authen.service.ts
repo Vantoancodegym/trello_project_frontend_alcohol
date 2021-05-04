@@ -43,6 +43,7 @@ export class AuthenService {
       }));
   }
   logout() {
+    this.httpClient.get(API_URL + "logout").subscribe();
     localStorage.removeItem('user');
     // @ts-ignore
     this.currentUserSubject.next(null);

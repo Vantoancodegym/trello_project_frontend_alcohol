@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IBoard} from '../../interface/i-board';
 import {BoardService} from '../../service/boardService/board.service';
+import {AuthenService} from '../../service/authenServie/authen.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import {BoardService} from '../../service/boardService/board.service';
 export class HomeComponent implements OnInit {
   boards: IBoard[] = [];
 
-  constructor(private boardService: BoardService) {
+  constructor(private boardService: BoardService, public authenService:AuthenService) {
     this.showAll();
   }
 
