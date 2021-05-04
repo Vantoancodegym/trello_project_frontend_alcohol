@@ -26,7 +26,6 @@ export class ListBoardTagUserComponent implements OnInit {
       });
     }
   }
-
   ngOnInit(): void {
     this.findAllBoard_tagUser();
   }

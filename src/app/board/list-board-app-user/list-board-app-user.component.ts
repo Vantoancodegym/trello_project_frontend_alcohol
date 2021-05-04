@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IBoard} from '../../interface/i-board';
 import {Subscription} from 'rxjs';
 import {BoardService} from '../../service/boardService/board.service';
@@ -16,11 +16,15 @@ export class ListBoardAppUserComponent implements OnInit {
   id = 0;
   avatar: string ='';
   name: string ='';
+  @Input()
+  user_id: number;
 
   constructor(private boardService: BoardService,
               private router: Router,
               private authenService: AuthenService){
     this.showAll();
+    // @ts-ignore
+    this.user_id = authenService.currentUserValue.id;
   }
 
 
@@ -28,7 +32,6 @@ export class ListBoardAppUserComponent implements OnInit {
   showAll() {
     let id = this.authenService.currentUserValue.id;
     console.log(this.authenService.currentUserValue)
-
     // @ts-ignore
     this.avatar = this.authenService.currentUserValue.avatar;
     console.log(this.avatar)
@@ -50,6 +53,7 @@ export class ListBoardAppUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }

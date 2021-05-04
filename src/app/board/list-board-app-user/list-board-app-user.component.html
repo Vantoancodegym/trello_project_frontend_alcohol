@@ -1,28 +1,41 @@
 
+<section class="jumbotron text-center">
+  <div class="p-3 mb-2 bg-info text-dark">
+    <img height="200px" src="{{avatar}}" alt="avatar">
+    <h1 class="jumbotron-heading">WELCOME {{name}}
+    </h1>
+  </div>
+  <div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+      <p><a [routerLink]="'/form/edit/'+user_id">Edit</a></p>
+      <app-log-out></app-log-out>
+    </div>
+  </div>
+</section>
 <table class="container">
+<tr>
+  <td>
+    <button type="button" class="btn btn-success" [routerLink]="'/boards/listBoardTagUser'">DANH SÁCH BOARD ĐƯỢC THÊM
+    VÀO
+  </button>
+  </td>
+</tr>
+</table>
 
-  <table class="table table-striped" >
+<table class="container">
+  <table class="table table-striped">
     <tr>
-      <td ><img height="200px" src="{{avatar}}" alt="avatar"></td>
-      <td>
-        <button type="button" class="btn btn-success" [routerLink]="'/boards/listBoardTagUser'">DANH SÁCH BOARD ĐƯỢC THÊM VÀO</button>
-    </td>
-    </tr>
-    <tr>
-      <td>{{name}} </td>
-    </tr>
-    <tr>
-      <td>
-        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?" [routerLink]="'/edit/:id'">
-          edit
-        </button>
+      <td class="alert alert-primary" role="alert">
+        DANH SÁCH BOARD ĐÃ TẠO
+      </td>
+
+      <td class="alert alert-primary" role="alert">
+        THÊM NGƯỜI DÙNG VÀO BẢNG
       </td>
     </tr>
     <tr *ngFor=" let b of boards">
       <td>
         <button type="button" class="btn btn-primary" [routerLink]="'/board/'+ b.id">{{b.name}}</button>
-
-
       </td>
       <td>
         <app-tag-user-board [board_id]="b.id"></app-tag-user-board>

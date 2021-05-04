@@ -56,8 +56,4 @@ export class ShowCardByListIdComponent implements OnInit {
     this.cardService.changePositionCard(cards).subscribe(() =>{
     })
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> bb5b5aed835fec6f3c210259b90c41d8a578f8b5
 }
