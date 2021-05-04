@@ -48,10 +48,7 @@ import {LabelsModule} from './labels/labels.module';
     ListModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-
     BrowserAnimationsModule,
-
-
     LabelsModule
 
   ],
