@@ -21,7 +21,7 @@ export class BoardService {
     return this.httpClient.get<IBoard[]>(API_BACKEND + 'board');
   }
 
-  findBoarById(id: number): Observable<any> {
+  getBoarById(id: number): Observable<any> {
     return this.httpClient.get<IBoard>(API_BACKEND + "board/findBoardById/" + id);
   }
 
@@ -39,11 +39,14 @@ export class BoardService {
   }
 
   createTagUserBoard(tagUserBoard: Tag_user_board): Observable<Tag_user_board> {
-    return this.httpClient.post<Tag_user_board>(API_BACKEND + 'boardAppUser/create', tagUserBoard);
+    return this.httpClient.post<Tag_user_board>(API_BACKEND + 'tagUser/create', tagUserBoard);
   }
 
   showAllAppUser(): Observable<IUser[]> {
     return this.httpClient.get<IUser[]>(API_BACKEND + 'list');
+  }
+  showAllTagUser(): Observable<Tag_user_board[]> {
+    return this.httpClient.get<Tag_user_board[]>(API_BACKEND + 'tagUser');
   }
 
 

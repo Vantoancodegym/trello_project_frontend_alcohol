@@ -34,7 +34,6 @@ export class CreateComponent implements OnInit {
       this.router.navigate(['/home']);
     });
   }
-
   ngOnInit(): void {
   }
 

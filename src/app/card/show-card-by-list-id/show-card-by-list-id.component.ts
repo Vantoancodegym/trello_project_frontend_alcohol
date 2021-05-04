@@ -63,6 +63,4 @@ export class ShowCardByListIdComponent implements OnInit {
     })
   }
 
-
-
 }
