@@ -36,4 +36,7 @@ export class UserService {
   addAppUserToCard(iCardUser: ICardUser):Observable<any>{
     return this.httpClient.post(API_USER +"card/tagUser/addAppUserToCard",iCardUser);
   }
+  getAllUser():Observable<any>{
+    return this.httpClient.get(API_USER+'list')
+  }
 }

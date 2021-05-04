@@ -14,6 +14,7 @@ import {FormLoginModule} from '../form-login/form-login.module';
 import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.component';
 // @ts-ignore
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import { FilterCardUserComponent } from './filter-card-user/filter-card-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
     CreateListComponent,
     EditTitleListComponent,
     DetailListComponent,
-    FilterCardLabelComponent
+    FilterCardLabelComponent,
+    FilterCardUserComponent
   ],
   imports: [
     CommonModule,
