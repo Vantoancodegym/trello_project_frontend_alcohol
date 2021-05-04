@@ -1,19 +1,19 @@
-<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">
-  Filter Card By Label
-</button>
+<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">Filter Card By Label</button>
 <br>
 <ng-template #template>
-      <div class="modal-content" style="border: none">
+      <div class="modal-content" style="border: none; background-color: #9C9C9C">
         <div class="modal-header">
-          <p class="modal-title pull-left">Filter card by label </p>
+          <h3 class="modal-title pull-left" style="color: black;"><b>Filter card by label</b></h3>
           <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">×</span>
           </button>
       </div>
-        <p class="modal-title pull-left">Select label you want to filter </p>
+        <div class="modal-header">
+        <p class="modal-title pull-left" style="color: black">Select label you want to filter </p>
       <select class="form-control" [(ngModel)]="label_id" (ngModelChange)="getAllCardByLabel($event)">
         <option *ngFor="let label of listLabel" [value]="label.id">{{label.title}}</option>
       </select>
+        </div>
       <div style="border: none">
         <table class="table table-bordered" style="border: black" *ngIf="label_id">
           <thead>

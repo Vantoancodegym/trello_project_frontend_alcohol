@@ -1,43 +1,42 @@
 <button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">
-Filter Card By User</button>
+  Filter Card By User
+</button>
 <br>
 <ng-template #template>
-  <div class="modal-content">
+  <div class="modal-content" style="border: none; background-color: #9C9C9C">
     <div class="modal-header">
-      <p class="modal-title pull-left">Filter Card </p>
+      <h3 class="modal-title pull-left" style="color: black;"><b>Filter card by label</b></h3>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>
-  </div>
-  <div style="margin: auto; width: 30%; border: 1px solid green; padding: 10px;">
-    <select class="form-control" [(ngModel)]="user_id"(ngModelChange)="getCardByUser($event)">
-      <option *ngFor="let user of listUser" [value]="user.id" >{{user.userName}}</option>
-    </select>
-  </div>
-  <div>
-    <table class="table table-bordered" style="border: black" *ngIf="user_id">
-      <h3>The selected User id is:: {{user_id}}</h3>
-      <h2>Danh sách Card cần tìm là</h2>
-      <thead>
-      <tr>
-        <th scope="col">STT</th>
-        <th scope="col">TITLE</th>
-        <th scope="col">CONTENT</th>
-        <th scope="col">POSITION</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let card of listCard, index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{card.title}}</td>
-        <td>{{card.content}}</td>
-        <td>{{card.position}}</td>
-      </tr>
-    </table>
+    <div class="modal-header">
+      <p class="modal-title pull-left" style="color: black">Select label you want to filter </p>
+      <select class="form-control" [(ngModel)]="user_id" (ngModelChange)="getCardByUser($event)">
+        <option *ngFor="let user of listUser" [value]="user.id">{{user.userName}}</option>
+      </select>
+    </div>
+    <div style="border: none">
+      <table class="table table-bordered" style="border: black" *ngIf="user_id">
+        <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">TITLE</th>
+          <th scope="col">CONTENT</th>
+          <th scope="col">POSITION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let card of listCard, index as i">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{card.title}}</td>
+          <td>{{card.content}}</td>
+          <td>{{card.position}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>
+    </div>
   </div>
 </ng-template>
-
