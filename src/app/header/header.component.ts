@@ -22,5 +22,8 @@ export class HeaderComponent implements OnInit {
       Object.assign({}, { class: 'center modal-lg' })
     );
   }
+  getConnect(){
+
+  }
 
 }
