@@ -32,4 +32,7 @@ export class CardService {
   getCardByLabel(id:number, labelId: number):Observable<any>{
     return this.httpClient.get(URL_BACKEND+"label/"+id+"?labelId="+ labelId);
   }
+  getCardByUser(id:number, userId: number): Observable<any>{
+    return this.httpClient.get(URL_BACKEND+"search/"+id+"?userId="+userId);
+  }
 }
