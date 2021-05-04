@@ -16,11 +16,11 @@ export class NoticficationService {
   webSocketEndPoint: string = 'http://localhost:8080/ws';
   topic: string = "notification/topic/";
   stompClient: any;
-  headers = new HttpHeaders({Authorization: `Bearer ` + this.authenService.currentUserValue.accessToken});
-
+  headers = new HttpHeaders().set("Authorization", "Bearer " + this.authenService.currentUserValue.accessToken);
 
   constructor(private authenService: AuthenService,private httpClient: HttpClient) { }
   _connect(headerComponent: HeaderComponent) {
+    console.log(this.headers)
     console.log("Initialize WebSocket Connection");
     let ws = new SockJS(this.webSocketEndPoint);
     this.stompClient = Stomp.over(ws);
@@ -36,7 +36,7 @@ export class NoticficationService {
   };
   createNotification(notification: any) {
     console.log("pr send duoc goi");
-    this.stompClient.send("notification/app/", this.headers, JSON.stringify(notification));
+    this.stompClient.send("notification/app/",{}, JSON.stringify(notification));
   }
   getNotifications(): Observable<INotification[]>{
     return this.httpClient.get<INotification[]>(URL_BACKEND + "notification");

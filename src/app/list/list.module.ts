@@ -12,6 +12,7 @@ import { EditTitleListComponent } from './edit-title-list/edit-title-list.compon
 import { DetailListComponent } from './detail-list/detail-list.component';
 import {FormLoginModule} from '../form-login/form-login.module';
 import {FilterCardLabelComponent} from './filter-card-label/filter-card-label.component';
+// @ts-ignore
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({

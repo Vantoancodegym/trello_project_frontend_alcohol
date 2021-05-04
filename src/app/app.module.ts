@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CardModule} from './card/card.module';
 import {ListModule} from './list/list.module';
+// @ts-ignore
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
