@@ -1,3 +1,5 @@
+
+import { Component, OnInit } from '@angular/core';
 import {Component, OnInit} from '@angular/core';
 import {IBoard} from "../../interface/i-board";
 import {BoardService} from "../../service/boardService/board.service";

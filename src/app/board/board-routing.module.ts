@@ -1,3 +1,9 @@
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [];
+
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CreateComponent} from "./create/create.component";
@@ -38,5 +44,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BoardRoutingModule {
-}
+
+export class BoardRoutingModule {}
+
+
