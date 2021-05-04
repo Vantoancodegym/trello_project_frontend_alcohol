@@ -1,0 +1,12 @@
+<div class="navbar has-background-dark">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <h1 class="app-name has-gradient-text">Trello Project Of Alcohol Team</h1>
+    </div>
+  </div>
+  <div style="position: absolute; right: 5%; top: 0">
+    <h5>Welcome {{authenService.currentUserValue.username}}</h5>
+    <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit password</a></p>
+  </div>
+</div>
+

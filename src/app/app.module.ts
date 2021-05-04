@@ -25,6 +25,8 @@ import {environment} from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {LabelsModule} from './labels/labels.module';
+import { HeaderComponent } from './header/header.component';
+import {FormLoginModule} from './form-login/form-login.module';
 
 
 
@@ -32,7 +34,8 @@ import {LabelsModule} from './labels/labels.module';
 // @ts-ignore
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import {LabelsModule} from './labels/labels.module';
     MatInputModule,
     ModalModule.forRoot(),
     ListModule,
+    FormLoginModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
 
