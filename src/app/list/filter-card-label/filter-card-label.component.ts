@@ -19,6 +19,7 @@ export class FilterCardLabelComponent implements OnInit {
   label_id: number = 0;
   // @ts-ignore
   modalRef: BsModalRef;
+  @Input()
   board_id: number = 0;
   board: IBoard = {};
   constructor(private modalService: BsModalService,private labelService:LabelService,
@@ -26,12 +27,6 @@ export class FilterCardLabelComponent implements OnInit {
               private boardService:BoardService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paraMap =>{
-      this.board_id = Number(paraMap.get("id"));
-      this.boardService.findBoarById(this.board_id).subscribe(data =>{
-        this.board = data;
-      })
-    })
     this.getAllLabel();
   }
   getAllLabel(){

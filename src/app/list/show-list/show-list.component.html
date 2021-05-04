@@ -12,10 +12,10 @@
           <a class="nav-link" [routerLink]="'/form/edit/{{authenService.currentUserValue.id}}'">Welcome {{authenService.currentUserValue.username}} <span class="sr-only">(current)</span></a>
         </li>
         <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter Card</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/label'">Filter Card By Label</a>
-            <a class="dropdown-item" [routerLink]="'/board/'+board_id+'/filter/card/user'">Filter Card By User</a>
+            <a class="dropdown-item" ><app-filter-card-label [board_id]="board_id"></app-filter-card-label></a>
+            <a class="dropdown-item" ><app-filter-card-user [board_id]="board_id"></app-filter-card-user></a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>

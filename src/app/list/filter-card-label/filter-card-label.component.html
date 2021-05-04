@@ -1,43 +1,40 @@
-<div class="container">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="'/home'">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Board: {{board.name}} <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="'/board/'+board_id">Back <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </div>
-    <div style="margin: auto; width: 30%; border: 1px solid green; padding: 10px;">
-      <select class="form-control" [(ngModel)]="label_id"(ngModelChange)="getAllCardByLabel($event)">
-        <option *ngFor="let label of listLabel" [value]="label.id" >{{label.title}}</option>
+<button type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">
+  Filter Card By Label
+</button>
+<br>
+<ng-template #template>
+      <div class="modal-content" style="border: none">
+        <div class="modal-header">
+          <p class="modal-title pull-left">Filter card by label </p>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+      </div>
+        <p class="modal-title pull-left">Select label you want to filter </p>
+      <select class="form-control" [(ngModel)]="label_id" (ngModelChange)="getAllCardByLabel($event)">
+        <option *ngFor="let label of listLabel" [value]="label.id">{{label.title}}</option>
       </select>
+      <div style="border: none">
+        <table class="table table-bordered" style="border: black" *ngIf="label_id">
+          <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">CONTENT</th>
+            <th scope="col">POSITION</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let card of listCard, index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{card.title}}</td>
+            <td>{{card.content}}</td>
+            <td>{{card.position}}</td>
+          </tr>
+        </table>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>
     </div>
-  </nav>
-  <div>
-<table class="table table-bordered" style="border: black" *ngIf="label_id">
-  <h3>The selected Label id is:: {{label_id}}</h3>
-  <h2>Danh sách Card cần tìm là</h2>
-  <thead>
-  <tr>
-    <th scope="col">STT</th>
-    <th scope="col">TITLE</th>
-    <th scope="col">CONTENT</th>
-    <th scope="col">POSITION</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let card of listCard, index as i">
-    <th scope="row">{{i+1}}</th>
-    <td>{{card.title}}</td>
-    <td>{{card.content}}</td>
-    <td>{{card.position}}</td>
-  </tr>
-</table>
-  </div>
-</div>
+    </div>
+</ng-template>
