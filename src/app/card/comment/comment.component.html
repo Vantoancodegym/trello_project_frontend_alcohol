@@ -1,1 +1,12 @@
-<p>comment works!</p>
+<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea [ngModel]="content" class="form-control" rows="5" id="comment"></textarea>
+  <br><br>
+  <button (click)="createComment()">Comment</button>
+  <hr>
+</div>
+<div *ngFor="let comments of listComment">
+  <p>{{comments.appUser.userName}}</p>
+  <p>{{comments.content}}</p>
+</div>
+
