@@ -28,7 +28,6 @@ export class NoticficationService {
     _this.stompClient.connect(_this.headers, function (frame: any) {
 
       _this.stompClient.subscribe(_this.topic, function (sdkEvent: any) {
-        console.log(sdkEvent)
         console.log("pt được gọi")
         headerComponent.getConnect();
         // _this.onMessageReceived(sdkEvent);

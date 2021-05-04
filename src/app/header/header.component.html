@@ -8,7 +8,7 @@
     <h5>Welcome {{authenService.currentUserValue.username}}
       <span type="button" (click)="openModalWithClass(template)" style="border: none; background: honeydew">
         <i class="bi bi-bell-fill"></i></span>
-      <span>({{notifications.length}})</span></h5>
+      <span>({{notifications.length - readNotification}})</span></h5>
     <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit profile</a> </p>
   </div>
 </div>
