@@ -1,1 +1,15 @@
+
 <p>list-board-tag-user works!</p>
+
+
+<div class="container">
+  <table class="table table-striped">
+    <tr>
+      <td>NAME</td>
+    </tr>
+    <tr *ngFor="let b of boards">
+      <td >{{b.name}}</td>
+    </tr>
+  </table>
+</div>
+

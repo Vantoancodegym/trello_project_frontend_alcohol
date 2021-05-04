@@ -11,18 +11,26 @@
     </div>
     <div class="modal-body">
       <div class="col-8" style="float: left">
-      <h5>Title</h5>
-      <p>{{card.title}}</p>
-      <h5>Content</h5>
-      <p>{{card.content}}</p>
-      <div *ngFor="let item of mediaFiles">
-        <a href="{{item.link}}">file</a></div>
+        <h5>Title</h5>
+        <p>{{card.title}}</p>
+        <h5>Content</h5>
+        <p>{{card.content}}</p>
+        <h5>Attach file</h5>
+        <div *ngFor="let item of mediaFiles">
+          <a href="{{item.link}}">file</a></div>
+        <h5>Labels</h5>
+        <span *ngFor="let l of labels"> <span [style.backgroundColor]="l.color">{{l.title}}</span> &nbsp; &nbsp;
+        </span>
+        <h5>Member</h5>
+        <span *ngFor="let user of users">{{user.userName}}&nbsp; &nbsp;</span>
       </div>
       <div class="col-1">
         <ul>
-        <li><app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card></li>
-        <li><input type = "file" (change)="onFileSelected($event)" name="file" id="file"></li>
-      </ul>
+          <app-edit-card [card_id]="card_id" (isUpdate)="update()"></app-edit-card>
+          <input type="file" (change)="onFileSelected($event)" name="file" id="file" style="padding-bottom: 5px"><br>
+          <app-create-label [card_id]="card_id" (isAddLabel)="update()"></app-create-label>
+          <app-add-member-for-card [card_id]="card_id" (isAddUser)="update()"></app-add-member-for-card>
+        </ul>
       </div>
 
     </div>

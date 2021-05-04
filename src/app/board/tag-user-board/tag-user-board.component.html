@@ -1,0 +1,3 @@
+<select  [(ngModel)]="tagUserBoard.appUser.id" (change)="tagUser()">
+    <option *ngFor="let u of listUser" name="user" [value]="u.id" >{{u.userName}}</option>
+  </select>

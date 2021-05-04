@@ -1,0 +1,6 @@
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+        (change)="createLabel()" [(ngModel)]="label_id" name="label_id">
+  <option selected value="selected">select label</option>
+  <option *ngFor="let l of labels" [value]="l.id" [style.backgroundColor]="l.color"
+          >{{l.title}}</option>
+</select>

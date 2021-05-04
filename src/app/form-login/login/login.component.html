@@ -1,0 +1,37 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+<div id="login">
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form (ngSubmit)="loginUser()">
+            <h1 class="text-center text-info">Login Form</h1>
+            <div class="form-group">
+              <label for="username" class="text-info">Username:</label><br>
+              <input type="text" placeholder="Enter your user name" [(ngModel)]="login.userName" required minlength="6" name="userName" id="username" class="form-control" style="width: 450px">
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-info">Passwords:</label><br>
+              <input type="password" placeholder="Enter your password" [(ngModel)]="login.passWord" name="userName" id="password" class="form-control" style="width: 450px">
+            </div>
+            <div class="form-group">
+              <div style="color: red;" *ngIf="isLoginFailed">
+                Login failed: {{ errorMessage }}
+              </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start" style="float: right; width: 120px">
+              <button class="btn btn-outline-info" type="submit" >Login</button>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+              <button class="btn btn-outline-info" type="button" value="submit" [routerLink]="'/form/register'">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -3,6 +3,8 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IUserToken} from '../../interface/i-user-token';
 import {map} from 'rxjs/operators';
+
+import {IUser} from '../../interface/i-user';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 const API_URL = environment.api_url;
@@ -28,7 +30,11 @@ export class AuthenService {
   }
 
   login(username: string, password: string) {
-    return this.httpClient.post(API_URL + 'login', {username, password})
+    let user: IUser = {
+      userName: username,
+      passWord: password
+    }
+    return this.httpClient.post(API_URL + 'login', user)
       .pipe(map(user => {
         localStorage.setItem('user', JSON.stringify(user));
         this.currentUserSubject.next(user);
@@ -37,6 +43,7 @@ export class AuthenService {
       }));
   }
   logout() {
+    this.httpClient.get(API_URL + "logout").subscribe();
     localStorage.removeItem('user');
     // @ts-ignore
     this.currentUserSubject.next(null);

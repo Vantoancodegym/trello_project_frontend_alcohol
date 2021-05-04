@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ICard} from '../../interface/i-card';
 import {CardService} from '../../service/cardService/card.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {IUser} from '../../interface/i-user';
+import {UserService} from '../../service/user/user.service';
 
 
 // @ts-ignore
@@ -13,18 +15,10 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 export class ShowCardByListIdComponent implements OnInit {
   @Input()
   list_id: any = 0;
-  // @Input("listId")
-  // get listId(){
-  //   return this.list_id;
-  // }
-  // set listId(value){
-  //   let  v = Number(value);
-  //   this.list_id = Number.isNaN(v)? 0 : v;
-  // }
-
+  card_id: any = 0;
+  users: IUser[] = [];
   cards: ICard[] =[]
-
-  constructor(private cardService: CardService) {
+  constructor(private cardService: CardService, private userService: UserService) {
 
   }
 
@@ -50,6 +44,11 @@ export class ShowCardByListIdComponent implements OnInit {
       this.changePositionCard(event.container.data)
     }
   }
+  @Output()
+  isChanged = new EventEmitter();
+  changeOutput(){
+    this.isChanged.emit(true)
+  }
   changePositionCard(cards: ICard[]){
     for (let i = 0; i < cards.length; i++) {
       cards[i].position = i;
@@ -57,7 +56,8 @@ export class ShowCardByListIdComponent implements OnInit {
     this.cardService.changePositionCard(cards).subscribe(() =>{
     })
   }
+<<<<<<< HEAD
 
-
-
+=======
+>>>>>>> bb5b5aed835fec6f3c210259b90c41d8a578f8b5
 }

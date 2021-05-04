@@ -32,10 +32,6 @@ export class EditCardComponent implements OnInit {
   editCard(){
     this.cardService.editCard(this.card_id, this.card).subscribe(() =>{
       this.isUpdate.emit(true);
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-      // @ts-ignore
-      this.router.navigateByUrl("/board/" + this.card.list?.board?.id) ;
     });
   }
   openModalWithClass(template: TemplateRef<any>) {

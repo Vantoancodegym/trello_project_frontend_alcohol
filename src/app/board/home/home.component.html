@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+    <p><app-log-out></app-log-out> <a routerLink="/form/edit/{{authenService.currentUserValue.id}}">Edit password</a></p>
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <th>STT</th>
+      <td>NAME</td>
+      <td>TAG USER</td>
+    </tr>
+    <tr *ngFor="let b of boards, index as i">
+      <td>{{i+1}}</td>
+      <td >{{b.name}}</td>
+  </table>
+</div>
