@@ -23,6 +23,7 @@ import { DetailCardComponent } from './detail-card/detail-card.component';
 import {LabelsModule} from '../labels/labels.module';
 import { AddMemberForCardComponent } from './add-member-for-card/add-member-for-card.component';
 import { ShowTagUserCardComponent } from './show-tag-user-card/show-tag-user-card.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ShowTagUserCardComponent } from './show-tag-user-card/show-tag-user-car
     DetailCardComponent,
     SearchCardComponent,
     AddMemberForCardComponent,
-    ShowTagUserCardComponent
+    ShowTagUserCardComponent,
+    CommentComponent
   ],
     exports: [
         ShowCardByListIdComponent,
