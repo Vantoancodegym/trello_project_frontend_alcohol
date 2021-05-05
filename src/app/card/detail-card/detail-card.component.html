@@ -32,7 +32,9 @@
           <app-add-member-for-card [card_id]="card_id" (isAddUser)="update()"></app-add-member-for-card>
         </ul>
       </div>
-
+      <div>
+        <app-comment [card_id]="card_id"></app-comment>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" (click)="modalRef.hide()">close</button>

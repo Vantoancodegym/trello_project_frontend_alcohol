@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea [(ngModel)]="comment.content" name="content" class="form-control" rows="5" id="comment"></textarea>
+  <br><br>
+  <button (click)="createComment()" type="button">Comment</button>
+  <hr>
+</div>
+<div *ngFor="let comments of listComment">
+  <p style="color: #2af598">{{comments.appUser?.userName}} bình luận </p>
+  <p><i>{{comments.content}}</i></p>
+</div>
+
