@@ -14,6 +14,7 @@ export class CommentComponent implements OnInit {
   @Input()
   card_id: number = 0;
   content: string ="";
+  test: boolean = false;
   appUser: IUser ={};
   comment: IComment = {};
   listComment:IComment[] = [];
@@ -28,16 +29,15 @@ export class CommentComponent implements OnInit {
       this.listComment = result;
       console.log(this.listComment);
     })
-    console.log(this.authenService.currentUserValue.id);
+    if(this.listComment != []){
+      this.test = true;
+    }
   }
   createComment(){
-    this.comment.date_crate = new Date();
-    // @ts-ignore
-    this.comment.appUser?.id = this.authenService.currentUserValue.id;
     this.commentService.createComment(this.comment).subscribe(()=>{
       console.log("tạo mới thành công");
     })
-    this.content = "";
+    this.comment.content = "";
   }
 }
 
