@@ -27,7 +27,6 @@ export class TagUserBoardComponent implements OnInit {
               private router: Router) {
     this.getListUser()
   }
-
   // tslint:disable-next-line:typedef
   getListUser() {
     this.boardService.showAllAppUser().subscribe(listUser =>{
@@ -38,18 +37,13 @@ export class TagUserBoardComponent implements OnInit {
   tagUser() {
     this.tagUserBoard.board.id = this.board_id;
     this.boardService.createTagUserBoard(this.tagUserBoard).subscribe(() => {
-      this.checkTagUser()
+      for (let i = 0; i < this.listUser.length; i++) {
+        if (this.tagUserBoard.appUser.id== this.listUser[i].id){
+          this.listUser.splice(i, 1);
+        }
+      }
     });
   };
-  checkTagUser(){
-    this.boardService.showAllTagUser().subscribe(()=>{
-    for (let i = 0; i < this.listUser.length; i++) {
-      if (this.tagUserBoard.appUser.id== this.listUser[i].id){
-        this.listUser.splice(i, 1);
-      }
-    }
-    })
-  }
   ngOnInit(): void {
     }
 

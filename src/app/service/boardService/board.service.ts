@@ -42,7 +42,7 @@ export class BoardService {
   }
 
   createTagUserBoard(tagUserBoard: Tag_user_board): Observable<Tag_user_board> {
-    return this.httpClient.post<Tag_user_board>(API_BACKEND + 'tagUser/create', tagUserBoard);
+    return this.httpClient.post<Tag_user_board>(API_BACKEND + 'boardAppUser/create', tagUserBoard);
   }
 
   showAllAppUser(): Observable<IUser[]> {
