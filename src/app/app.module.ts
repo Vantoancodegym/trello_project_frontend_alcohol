@@ -50,8 +50,9 @@ import {FormLoginModule} from './form-login/form-login.module';
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
     ],
-    exports: [
-    ],
+  exports: [
+    HeaderComponent
+  ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
