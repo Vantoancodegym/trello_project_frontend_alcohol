@@ -22,8 +22,8 @@
     </div>
     <div class="modal-body">
       <table>
-        <tr>
-          <td *ngFor="let n of notifications">{{n.content}}</td>
+        <tr *ngFor="let n of notifications">
+          <td>{{n.content}}</td>
         </tr>
       </table>
     </div>
