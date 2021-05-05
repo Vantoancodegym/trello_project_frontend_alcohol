@@ -5,7 +5,7 @@
       <td>NAME</td>
     </tr>
     <tr *ngFor="let b of boards">
-      <td >{{b.name}}</td>
+      <td ><a routerLink="/board/{{b.id}}">{{b.name}}</a></td>
     </tr>
   </table>
 </div>
