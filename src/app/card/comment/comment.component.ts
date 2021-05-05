@@ -14,7 +14,6 @@ export class CommentComponent implements OnInit {
   @Input()
   card_id: number = 0;
   content: string ="";
-  test: boolean = false;
   appUser: IUser ={};
   comment: IComment = {};
   listComment:IComment[] = [];
@@ -29,9 +28,6 @@ export class CommentComponent implements OnInit {
       this.listComment = result;
       console.log(this.listComment);
     })
-    if(this.listComment != []){
-      this.test = true;
-    }
   }
   createComment(){
     this.commentService.createComment(this.comment).subscribe(()=>{
