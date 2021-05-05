@@ -13,18 +13,9 @@ import {AuthenService} from "../../service/authenServie/authen.service";
 export class CommentComponent implements OnInit {
   @Input()
   card_id: number = 0;
-  content: any;
+  content: string ="";
   appUser: IUser ={};
-  comment: IComment = {
-    id: 0,
-    content:"",
-    appUser:{
-      id:0,
-      userName:"hieu",
-      passWord:""
-    },
-    card:{}
-  };
+  comment: IComment = {};
   listComment:IComment[] = [];
   constructor(private commentService:CommentService,private cardService:CardService,
               private authenService:AuthenService) { }
@@ -33,8 +24,9 @@ export class CommentComponent implements OnInit {
     this.cardService.findCardById(this.card_id).subscribe(data=>{
       this.comment.card = data;
     })
-    this.commentService.getAllComment().subscribe(result =>{
+    this.commentService.getAllComment(this.card_id).subscribe(result =>{
       this.listComment = result;
+      console.log(this.listComment);
     })
     console.log(this.authenService.currentUserValue.id);
   }

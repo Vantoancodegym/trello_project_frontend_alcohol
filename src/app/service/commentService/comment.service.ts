@@ -11,9 +11,9 @@ export class CommentService {
   constructor(private httpClient: HttpClient) { }
 
   createComment(comment:IComment):Observable<any>{
-    return  this.httpClient.post(API_BACKEND+"comments/create",comment);
+    return  this.httpClient.post<IComment>(API_BACKEND+"comments/create",comment);
   }
-  getAllComment():Observable<any>{
-    return this.httpClient.get(API_BACKEND+"comments")
+  getAllComment(cardId:number):Observable<any>{
+    return this.httpClient.get<IComment[]>(API_BACKEND+"comments/card/"+cardId)
   }
 }
