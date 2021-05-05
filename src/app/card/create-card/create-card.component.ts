@@ -53,6 +53,7 @@ export class CreateCardComponent implements OnInit {
         content: this.authenService.currentUserValue.username + " create new card: " + this.card.title,
         appUser: this.userList
       }
+      console.log(notification)
       this.noticficationService.createNotification(notification);
 
     })
