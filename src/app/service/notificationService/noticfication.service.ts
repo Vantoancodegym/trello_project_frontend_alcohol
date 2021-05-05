@@ -7,6 +7,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {INotification} from '../../interface/i-notification';
 import {environment} from '../../../environments/environment';
+import {IUser} from '../../interface/i-user';
 const URL_BACKEND = environment.api_url;
 
 @Injectable({
@@ -14,7 +15,7 @@ const URL_BACKEND = environment.api_url;
 })
 export class NoticficationService {
   webSocketEndPoint: string = 'http://localhost:8080/ws';
-  topic: string = "notification/topic/";
+  topic: string = "/topic/notice";
   stompClient: any;
   headers = new HttpHeaders().set("Authorization", "Bearer " + this.authenService.currentUserValue.accessToken);
 
@@ -36,9 +37,12 @@ export class NoticficationService {
   };
   createNotification(notification: any) {
     console.log("pr send duoc goi");
-    this.stompClient.send("notification/app/",{}, JSON.stringify(notification));
+    this.stompClient.send("/app/notice",{}, JSON.stringify(notification));
   }
   getNotifications(): Observable<INotification[]>{
     return this.httpClient.get<INotification[]>(URL_BACKEND + "notification");
+  }
+  getUsersByBoard(board_id: number): Observable<IUser[]>{
+    return this.httpClient.get<IUser[]>(URL_BACKEND + "notification/users/" + board_id);
   }
 }
