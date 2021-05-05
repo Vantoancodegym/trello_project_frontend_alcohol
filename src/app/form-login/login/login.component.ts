@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = 'Invalid Username or password';
 
-  constructor(private authenService: AuthenService, private router: Router) {
+  constructor(private authenService: AuthenService,
+              private router: Router) {
     this.authenService.currentUser.subscribe(value => this.currentUser = value);
   }
 

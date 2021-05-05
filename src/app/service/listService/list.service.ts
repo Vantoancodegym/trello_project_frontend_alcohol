@@ -27,6 +27,7 @@ export class ListService {
   }
   getBoardById(id: number): Observable<IBoard>{
     return this.httpClient.get<IBoard>(URL_BACKEND+`board/findBoardById/` + id);
+
   }
 
   findListById(id:number): Observable<IList>{

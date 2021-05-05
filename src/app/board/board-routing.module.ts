@@ -21,20 +21,19 @@ const routes: Routes = [
     component: ListBoardTagUserComponent
   },
   {
-    path: 'boards/listAppBoard',
+    path: 'home',
     component: ListBoardAppUserComponent
 
   },
   {
-    path: 'home',
+    path: 'listboard',
     component: HomeComponent
   },
   {
-    path: 'boardAppUser/tag',
+    path: 'tagUser/tag',
     component: TagUserBoardComponent
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

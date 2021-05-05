@@ -18,7 +18,6 @@ export class ListBoardTagUserComponent implements OnInit {
               private router: Router,
               private authenService: AuthenService) {
   }
-
   findAllBoard_tagUser() {
     let id = this.authenService.currentUserValue.id;
     if (id != null) {
@@ -27,7 +26,6 @@ export class ListBoardTagUserComponent implements OnInit {
       });
     }
   }
-
   ngOnInit(): void {
     this.findAllBoard_tagUser();
   }
