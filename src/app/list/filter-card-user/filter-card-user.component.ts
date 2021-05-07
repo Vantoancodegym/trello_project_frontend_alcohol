@@ -5,6 +5,7 @@ import {IUser} from '../../interface/i-user';
 import {CardService} from '../../service/cardService/card.service';
 import {ActivatedRoute} from '@angular/router';
 import {ICard} from '../../interface/i-card';
+import {NoticficationService} from '../../service/notificationService/noticfication.service';
 
 @Component({
   selector: 'app-filter-card-user',
@@ -20,7 +21,8 @@ export class FilterCardUserComponent implements OnInit {
   @Input()
   board_id: number = 0;
   constructor(private modalService: BsModalService,private userService: UserService,
-              private cardService: CardService, private activatedRoute: ActivatedRoute) { }
+              private cardService: CardService, private activatedRoute: ActivatedRoute,
+              private noticficationService: NoticficationService) { }
 
   ngOnInit(): void {
     this.getAllUser();
