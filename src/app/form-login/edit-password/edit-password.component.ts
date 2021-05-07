@@ -28,6 +28,8 @@ export class EditPasswordComponent implements OnInit {
     oldPassWord: '',
     newPassWord: ''
   };
+  message: string = 'Old password incorrect, please try again';
+  isPasswordCorrect: boolean = false;
   id: number = 0;
   constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute,
               private storage: AngularFireStorage) {
@@ -66,7 +68,10 @@ export class EditPasswordComponent implements OnInit {
   }
   editUser(){
     this.userService.editAppUser(this.appUser,this.id).subscribe(()=>{
-      this.router.navigateByUrl("/")
+      this.router.navigateByUrl("/");
+      this.isPasswordCorrect = false;
+    }, error => {
+      this.isPasswordCorrect = true
     })
   }
 }
