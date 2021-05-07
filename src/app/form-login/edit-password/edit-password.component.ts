@@ -6,6 +6,7 @@ import {UserService} from '../../service/user/user.service';
 import {AuthenService} from '../../service/authenServie/authen.service';
 import {Observable} from 'rxjs';
 import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-password',
@@ -37,6 +38,29 @@ export class EditPasswordComponent implements OnInit {
         })
       }
     );
+  }
+  onFileSelected(event: any) {
+    let n = Date.now();
+    const file = event.target.files[0];
+    const filePath = `trelloFIle/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          this.downloadURL.subscribe(url => {
+            if (url) {
+              this.appUser.avatar = url;
+            }
+          });
+        })
+      ).subscribe(url => {
+      if (url) {
+        console.log("Upload success");
+      }
+    });
   }
   editUser(){
     this.userService.editAppUser(this.appUser,this.id).subscribe(()=>{
