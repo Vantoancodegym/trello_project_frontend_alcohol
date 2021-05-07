@@ -25,6 +25,8 @@ export class EditPasswordComponent implements OnInit {
     userName: '',
     passWord: '',
     role: [],
+    oldPassWord: '',
+    newPassWord: ''
   };
   id: number = 0;
   constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute,
