@@ -6,4 +6,5 @@ export interface ILogin {
   passWord: string;
   role: [];
   oldPassWord?: string;
+  newPassWord?: string;
 }
