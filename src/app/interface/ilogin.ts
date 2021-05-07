@@ -5,4 +5,6 @@ export interface ILogin {
   userName: string;
   passWord: string;
   role: [];
+  oldPassWord?: string;
+  newPassWord?: string;
 }

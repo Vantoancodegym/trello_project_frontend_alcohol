@@ -61,7 +61,6 @@ export class RegisterComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   registionUser() {
-    console.log(this.login)
     this.loginService.createAppUser(this.login).subscribe(() => {
       this.router.navigate(['/']);
     });
