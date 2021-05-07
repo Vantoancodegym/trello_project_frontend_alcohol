@@ -25,7 +25,7 @@ export class FilterCardUserComponent implements OnInit {
               private noticficationService: NoticficationService) { }
 
   ngOnInit(): void {
-    this.getAllUser();
+    this.getAllUserTag(this.board_id);
   }
   openModalWithClass(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(
@@ -33,8 +33,8 @@ export class FilterCardUserComponent implements OnInit {
       Object.assign({}, {class: 'center modal-lg'})
     );
   }
-  getAllUser(){
-   this.userService.getAllUser().subscribe(data =>{
+  getAllUserTag(board_id : number){
+   this.noticficationService.getUsersByBoard(board_id).subscribe(data =>{
      this.listUser = data;
    })
   }
