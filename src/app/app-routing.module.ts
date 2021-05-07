@@ -7,16 +7,11 @@ import {CommentComponent} from "./card/comment/comment.component";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'form/login',
-    pathMatch: 'full'
-  },
-  {
     path: 'board/:id',
     component: ShowListComponent
   },
   {
-    path: 'form',
+    path: '',
     loadChildren: () => import("./form-login/form-login.module").then(module => module.FormLoginModule)
   },
   {
