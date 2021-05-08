@@ -51,5 +51,8 @@ export class BoardService {
   showAllTagUser(): Observable<Tag_user_board[]> {
     return this.httpClient.get<Tag_user_board[]>(API_BACKEND + 'tagUser');
   }
+  getListUserTag(board_id : number): Observable<IUser[]>{
+    return this.httpClient.get<IUser[]>(API_BACKEND + "boardAppUser/list/" + board_id);
+  }
 
 }
