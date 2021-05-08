@@ -45,4 +45,7 @@ export class NoticficationService {
   getUsersByBoard(board_id: number): Observable<IUser[]>{
     return this.httpClient.get<IUser[]>(URL_BACKEND + "notification/users/" + board_id);
   }
+  deleteNotificationByUser(): Observable<any>{
+    return this.httpClient.delete(URL_BACKEND + "notification")
+  }
 }
