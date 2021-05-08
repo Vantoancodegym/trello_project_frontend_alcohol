@@ -48,9 +48,10 @@ export class CommentComponent implements OnInit {
   createNotification(){
     // @ts-ignore
     this.noticficationService.getUsersByBoard(this.card.list.board?.id).subscribe(users => {
+      let userList = this.noticficationService.getListNoticeUser(users);
       let notification: INotification = {
         content: this.authenService.currentUserValue.username + " comment on : " + this.card.title,
-        appUser: users
+        appUser: userList
       }
       console.log(notification)
       this.noticficationService.createNotification(notification);

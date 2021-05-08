@@ -48,7 +48,7 @@ export class CreateCardComponent implements OnInit {
   createNotification(){
     // @ts-ignore
     this.noticficationService.getUsersByBoard(this.card.list.board?.id).subscribe(users => {
-      this.userList = users;
+      this.userList = this.noticficationService.getListNoticeUser(users);
       let notification: INotification = {
         content: this.authenService.currentUserValue.username + " create new card: " + this.card.title,
         appUser: this.userList

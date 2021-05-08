@@ -11,7 +11,6 @@ import {NoticficationService} from '../service/notificationService/noticfication
 })
 export class HeaderComponent implements OnInit {
   notifications: INotification[] = [];
-  readNotification: number =0;
   // @ts-ignore
   modalRef: BsModalRef;
   constructor(public authenService: AuthenService, private modalService: BsModalService, private noticficationService:NoticficationService) { }
@@ -30,7 +29,13 @@ export class HeaderComponent implements OnInit {
       template,
       Object.assign({}, { class: 'center modal-lg' })
     );
-    this.readNotification = this.notifications.length;
+  }
+  clearNotification(){
+    this.noticficationService.deleteNotificationByUser().subscribe(
+      () =>{
+        this.getNotification();
+      }
+    );
   }
   connect(){
     this.noticficationService._connect(this);

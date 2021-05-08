@@ -36,6 +36,7 @@ export class ShowCardByListIdComponent implements OnInit {
       this.cards = result;
     })
   }
+
   drop(event: CdkDragDrop<ICard[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -66,7 +67,7 @@ export class ShowCardByListIdComponent implements OnInit {
   changeNotification(card: any){
     // @ts-ignore
     this.noticficationService.getUsersByBoard(card.list.board?.id).subscribe(users => {
-      this.userList = users;
+      this.userList = this.noticficationService.getListNoticeUser(users);
       let notification: INotification = {
         content: this.authenService.currentUserValue.username + " change position of card: " + card.title,
         appUser: this.userList

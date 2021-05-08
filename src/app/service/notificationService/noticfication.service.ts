@@ -45,4 +45,13 @@ export class NoticficationService {
   getUsersByBoard(board_id: number): Observable<IUser[]>{
     return this.httpClient.get<IUser[]>(URL_BACKEND + "notification/users/" + board_id);
   }
+  deleteNotificationByUser(): Observable<any>{
+    return this.httpClient.delete(URL_BACKEND + "notification")
+  }
+  getListNoticeUser(users: IUser[]): IUser[]{
+    for (let i = 0; i < users.length; i++) {
+      if (this.authenService.currentUserValue.id == users[i].id) users.splice(i,1);
+    }
+    return users;
+  }
 }

@@ -57,14 +57,17 @@ export class AddMemberForCardComponent implements OnInit {
     })
   }
   createNotification(){
+    if (this.appUser_id != this.authenService.currentUserValue.id){
       // @ts-ignore
-        let notification: INotification = {
-          content: this.authenService.currentUserValue.username + " tag you to be member of " + this.card.title ,
-          appUser: [{
-            id: this.appUser_id
-          }]
-        }
-        console.log(notification)
-        this.noticficationService.createNotification(notification);
+      let notification: INotification = {
+        content: this.authenService.currentUserValue.username + " tag you to be member of " + this.card.title ,
+        appUser: [{
+          id: this.appUser_id
+        }]
+      }
+      console.log(notification)
+      this.noticficationService.createNotification(notification);
+    }
+
     }
 }
