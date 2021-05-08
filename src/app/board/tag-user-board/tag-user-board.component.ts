@@ -25,11 +25,10 @@ export class TagUserBoardComponent implements OnInit {
 
   constructor(private boardService: BoardService,
               private router: Router) {
-    this.getListUser()
   }
   // tslint:disable-next-line:typedef
-  getListUser() {
-    this.boardService.showAllAppUser().subscribe(listUser =>{
+  getListUser(board_id : number) {
+    this.boardService.getListUserTag(board_id).subscribe(listUser =>{
       this.listUser = listUser;
       console.log(this.listUser)
     })
@@ -45,7 +44,8 @@ export class TagUserBoardComponent implements OnInit {
     });
   };
   ngOnInit(): void {
-    }
+    this.getListUser(this.board_id);
+  }
 
 
 }
