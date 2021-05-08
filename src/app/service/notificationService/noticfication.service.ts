@@ -48,4 +48,10 @@ export class NoticficationService {
   deleteNotificationByUser(): Observable<any>{
     return this.httpClient.delete(URL_BACKEND + "notification")
   }
+  getListNoticeUser(users: IUser[]): IUser[]{
+    for (let i = 0; i < users.length; i++) {
+      if (this.authenService.currentUserValue.id == users[i].id) users.splice(i,1);
+    }
+    return users;
+  }
 }
