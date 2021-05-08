@@ -1,0 +1,11 @@
+<section class="jumbotron text-center">
+  <div class="p-3 mb-2 bg-info text-dark">
+    <h1 class="jumbotron-heading">TẠO MỚI BOARD</h1>
+  </div>
+</section>
+<form >
+  <div class="mb-3">
+    <input style="min-width:1px;" type="name" class="form-control"  name="name" [(ngModel)]="board.name" placeholder="Enter name" >
+  </div>
+  <input  class="btn btn-info" type="submit" (click)="create()" value="create">
+</form>
