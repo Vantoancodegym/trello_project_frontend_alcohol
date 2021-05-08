@@ -36,6 +36,7 @@ export class ShowCardByListIdComponent implements OnInit {
       this.cards = result;
     })
   }
+
   drop(event: CdkDragDrop<ICard[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

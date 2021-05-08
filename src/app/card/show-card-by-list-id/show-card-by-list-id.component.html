@@ -3,7 +3,7 @@
      id="{{list_id}}"
      [cdkDropListData]="cards"
      (cdkDropListDropped)="drop($event)">
-  <div class="task" *ngFor="let item of cards" cdkDrag style="position: relative">
+  <div class="task cdkDragPosition" *ngFor="let item of cards" cdkDrag>
     <div  style="position: absolute; right: 0px; top: 0px"><app-detail-card [card_id]="item.id" (isUpdate)="changeOutput()"></app-detail-card></div>
     <table>
       <tr>{{ item.title }}</tr>
