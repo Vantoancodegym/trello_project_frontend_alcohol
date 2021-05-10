@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
 
-  API_LOCAL : 'http://localhost:8080/list/'
+  api_url: 'https://trello-alcohol.herokuapp.com/',
 
   firebaseConfig : {
     apiKey: "AIzaSyDb8Fn1YnMY6F24h7zmUinPbiGQGv5Texc",

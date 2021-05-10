@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://trello-project-alcohol.herokuapp.com/',
+  api_url: 'https://trello-alcohol.herokuapp.com/',
   firebaseConfig : {
     apiKey: 'AIzaSyDb8Fn1YnMY6F24h7zmUinPbiGQGv5Texc',
     authDomain: 'trello-project-firebase.firebaseapp.com',
