@@ -740,7 +740,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    api_url: 'https://trello-project-alcohol.herokuapp.com/',
+    api_url: 'https://trello-alcohol.herokuapp.com/',
     firebaseConfig: {
         apiKey: 'AIzaSyDb8Fn1YnMY6F24h7zmUinPbiGQGv5Texc',
         authDomain: 'trello-project-firebase.firebaseapp.com',
