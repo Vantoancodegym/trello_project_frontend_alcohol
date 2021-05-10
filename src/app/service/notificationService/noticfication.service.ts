@@ -14,7 +14,7 @@ const URL_BACKEND = environment.api_url;
   providedIn: 'root'
 })
 export class NoticficationService {
-  webSocketEndPoint: string = 'http://localhost:8080/ws';
+  webSocketEndPoint: string = URL_BACKEND+ 'ws';
   topic: string = "/topic/notice";
   stompClient: any;
   headers = new HttpHeaders().set("Authorization", "Bearer " + this.authenService.currentUserValue.accessToken);
